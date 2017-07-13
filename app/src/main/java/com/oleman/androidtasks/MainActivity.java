@@ -47,9 +47,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 menu.add(0, 1, 0, "What the task?"); //добавление элементом в контекстное меню для определенной кнопки
                 break;
             case R.id.task2Btn:
-                menu.add(0, 1, 0, "What the task?");
+                menu.add(0, 2, 0, "What the task?");
                 break;
         }
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){   //показывает, что за TASK при нажатии на "What the task?"
+            case 1:
+                Toast.makeText(MainActivity.this, "Color picker.", Toast.LENGTH_LONG).show();
+                break;
+            case 2:
+                Toast.makeText(MainActivity.this, "Calculator.", Toast.LENGTH_LONG).show();
+                break;
+        }
+        return super.onContextItemSelected(item);
     }
 
     @Override
