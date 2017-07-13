@@ -17,7 +17,7 @@
             android:id="@+id/textTask1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tap the button"
+            android:text="@string/tap_the_button_task1"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -36,9 +36,10 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_weight="1"
-            android:text="Red"
+            android:text="@string/red_task1"
             android:textColor="@android:color/holo_red_light"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            tools:ignore="NestedWeights" />
 
         <Button
             android:id="@+id/greenBtn"
@@ -47,7 +48,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_weight="1"
-            android:text="Green"
+            android:text="@string/green_task1"
             android:textColor="@android:color/holo_green_dark"
             android:textSize="24sp" />
 
@@ -58,7 +59,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_weight="1"
-            android:text="Blue"
+            android:text="@string/blue_task1"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="24sp" />
     </LinearLayout>
@@ -67,5 +68,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical"></LinearLayout>
+        android:orientation="vertical"
+        tools:ignore="UselessLeaf"></LinearLayout>
 </LinearLayout>

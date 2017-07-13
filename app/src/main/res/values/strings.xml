@@ -2,6 +2,7 @@
     <string name="app_name">Android Tasks</string>
     <string name="task_1">Task 1</string>
     <string name="task_2">Task 2</string>
+    <string name="task_3">Task 3</string>
     <string name="tap_button">Tap button</string>
     <string name="blue">Blue</string>
     <string name="green">Green</string>
@@ -10,4 +11,17 @@
     <string name="action_about">About</string>
     <string name="action_setting">Setting</string>
     <string name="action_display_about">Display About</string>
+
+
+    <string name="rb_left">Left</string>
+    <string name="rb_center">Center</string>
+    <string name="rb_right">Right</string>
+    <string name="buttons_name_text">Name</string>
+    <string name="create_btn">Create</string>
+
+    <string name="clear_btn">Clear</string>
+    <string name="blue_task1">Blue</string>
+    <string name="green_task1">Green</string>
+    <string name="red_task1">Red</string>
+    <string name="tap_the_button_task1">Tap the button</string>
 </resources>
