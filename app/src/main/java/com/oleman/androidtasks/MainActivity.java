@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         task1Btn = (Button) findViewById(R.id.task1Btn);
         task2Btn = (Button) findViewById(R.id.task2Btn);
 
+
         task1Btn.setOnClickListener(this);
         task2Btn.setOnClickListener(this);
 
