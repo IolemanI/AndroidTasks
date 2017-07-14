@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button task1Btn;
     private Button task2Btn;
     private Button task3Btn;
+    private Button task4Btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,14 +34,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         task1Btn = (Button) findViewById(R.id.task1Btn);
         task2Btn = (Button) findViewById(R.id.task2Btn);
         task3Btn = (Button) findViewById(R.id.task3Btn);
+        task4Btn = (Button) findViewById(R.id.task4Btn);
 
         task1Btn.setOnClickListener(this);
         task2Btn.setOnClickListener(this);
         task3Btn.setOnClickListener(this);
+        task4Btn.setOnClickListener(this);
 
         registerForContextMenu(task1Btn); //регистрация контекстного меню для кнопок
         registerForContextMenu(task2Btn);
         registerForContextMenu(task3Btn);
+        registerForContextMenu(task4Btn);
     }
 
     @Override        // создание контекстного меню
@@ -56,6 +60,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.task3Btn:
                 menu.add(0, 3, 0, "Info");
                 break;
+            case R.id.task4Btn:
+                menu.add(0, 4, 0, "Info");
+                break;
         }
     }
 
@@ -70,6 +77,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(MainActivity.this, "Adding the buttons in real time.", Toast.LENGTH_LONG).show();
                 break;
             case 3:
+                Toast.makeText(MainActivity.this, "Changing the parameters of view-elements in real time.", Toast.LENGTH_LONG).show();
+                break;
+            case 4:
                 Toast.makeText(MainActivity.this, "Calculator.", Toast.LENGTH_LONG).show();
                 break;
         }
@@ -120,7 +130,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.task3Btn:
-                Log.d(TAG, "Task #3 clicked.");
+                Intent intent3 = new Intent(this, Task3Activity.class);
+                startActivity(intent3);
+                Log.d(TAG, "Open Task #3.");
+
+                break;
+            case R.id.task4Btn:
+                Log.d(TAG, "Task #4 clicked.");
 
                 Toast toast = Toast.makeText(MainActivity.this, "In developing.", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER, 0, 0);
