@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.oleman.androidtasks.Task2Activity"
+    tools:context="com.oleman.androidtasks.tasks.Task2Activity"
     android:orientation="vertical">
 
     <RadioGroup

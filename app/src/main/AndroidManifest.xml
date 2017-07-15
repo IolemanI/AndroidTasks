@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.oleman.androidtasks">
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:supportsRtl">
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,9 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Task1Activity" />
-        <activity android:name=".Task2Activity" />
-        <activity android:name=".Task3Activity"></activity>
+        <activity android:name=".tasks.Task1Activity" />
+        <activity android:name=".tasks.Task2Activity" />
+        <activity android:name=".tasks.Task3Activity"/>
+        <activity android:name=".tasks.Task4Activity"/>
     </application>
 
 </manifest>

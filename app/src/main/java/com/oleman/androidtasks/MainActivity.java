@@ -5,14 +5,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import com.oleman.androidtasks.tasks.Task1Activity;
+import com.oleman.androidtasks.tasks.Task2Activity;
+import com.oleman.androidtasks.tasks.Task3Activity;
+import com.oleman.androidtasks.tasks.Task4Activity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -80,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(MainActivity.this, "Changing the parameters of view-elements in real time.", Toast.LENGTH_LONG).show();
                 break;
             case 4:
-                Toast.makeText(MainActivity.this, "Calculator.", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Firebase chat.", Toast.LENGTH_LONG).show();
                 break;
         }
         return super.onContextItemSelected(item);
@@ -136,17 +138,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.task4Btn:
-                Log.d(TAG, "Task #4 clicked.");
-
-                Toast toast = Toast.makeText(MainActivity.this, "In developing.", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                LinearLayout toastImage = (LinearLayout) toast.getView();
-                ImageView imageView = new ImageView(MainActivity.this);
-                imageView.setImageResource(R.drawable.toast_image);
-                toastImage.addView(imageView, 0);
-                toast.show();
+                Intent intent4 = new Intent(this, Task4Activity.class);
+                startActivity(intent4);
+                Log.d(TAG, "Open Task #4.");
 
                 break;
+//            case R.id.task5Btn:
+//                Log.d(TAG, "Task #4 clicked.");
+//
+//                Toast toast = Toast.makeText(MainActivity.this, "In developing.", Toast.LENGTH_SHORT);
+//                toast.setGravity(Gravity.CENTER, 0, 0);
+//                LinearLayout toastImage = (LinearLayout) toast.getView();
+//                ImageView imageView = new ImageView(MainActivity.this);
+//                imageView.setImageResource(R.drawable.toast_image);
+//                toastImage.addView(imageView, 0);
+//                toast.show();
+//
+//                break;
         }
     }
 }

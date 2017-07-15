@@ -1,4 +1,4 @@
-package com.oleman.androidtasks;
+package com.oleman.androidtasks.tasks;
 
 import android.graphics.Color;
 import android.support.constraint.ConstraintLayout;
@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.oleman.androidtasks.R;
 
 public class Task1Activity extends AppCompatActivity implements View.OnClickListener {
 

@@ -1,4 +1,4 @@
-package com.oleman.androidtasks;
+package com.oleman.androidtasks.tasks;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import com.oleman.androidtasks.R;
 
 public class Task3Activity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener{
 

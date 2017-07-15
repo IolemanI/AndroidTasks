@@ -26,8 +26,8 @@
     <string name="buttons_name_text">Name</string>
     <string name="create_btn">Create</string>
     <string name="clear_btn">Clear</string>
-
-
+    <string name="message_task4">Message</string>
+    <string name="logout_task4">Logout</string>
 
 
 </resources>

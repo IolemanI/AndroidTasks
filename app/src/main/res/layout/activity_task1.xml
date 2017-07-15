@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.oleman.androidtasks.Task1Activity"
+    tools:context="com.oleman.androidtasks.tasks.Task1Activity"
     android:id="@+id/task1_layout">
 
     <LinearLayout

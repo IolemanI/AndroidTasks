@@ -1,4 +1,4 @@
-package com.oleman.androidtasks;
+package com.oleman.androidtasks.tasks;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,11 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import java.io.StringReader;
+import com.oleman.androidtasks.R;
 
 public class Task2Activity extends AppCompatActivity implements View.OnClickListener {
 
