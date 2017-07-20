@@ -14,16 +14,27 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.oleman.androidtasks.Settings.ActivitySettings;
 import com.oleman.androidtasks.tasks.Task1Activity;
 import com.oleman.androidtasks.tasks.Task2Activity;
 import com.oleman.androidtasks.tasks.Task3Activity;
 import com.oleman.androidtasks.tasks.Task4Activity;
 import com.oleman.androidtasks.tasks.Task5Activity;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final int LAYOUT = R.layout.activity_main;
     public static final String TAG = "myLogs";
+    private static final String FILENAME = "AndroidTasks";
+
 
     private Menu menu;  //параметр выведен для управления чек-боксом в меню.
     private Button task1Btn;
@@ -55,6 +66,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         registerForContextMenu(task3Btn);
         registerForContextMenu(task4Btn);
         registerForContextMenu(task5Btn);
+
+        writeFile();
+    }
+
+
+    private void writeFile() {
+        try {
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
+                    openFileOutput(FILENAME, MODE_PRIVATE)));
+
+            bw.write("File for AndroidTask settings");
+            bw.close();
+            Log.d(TAG, "File has been written!");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override        // создание контекстного меню
@@ -106,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_activity_menu, menu);
 
-        menu.add(1,4,3,"Display About").setCheckable(true).setChecked(true);  //программно добавляэм пункт меню.
+//        menu.add(1,4,3,"Display About").setCheckable(true).setChecked(true);  //программно добавляэм пункт меню.
         this.menu = menu;
         return true;
     }
@@ -119,13 +148,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(MainActivity.this, "In developing", Toast.LENGTH_LONG).show();
                 break;
             case R.id.action_setting:
-                Toast.makeText(MainActivity.this, "In developing", Toast.LENGTH_LONG).show();
+//                Toast.makeText(MainActivity.this, "In developing", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this, ActivitySettings.class);
+                startActivity(intent);
                 break;
-            case 4:
-                item.setChecked(!item.isChecked());         //обработка чек-бокса в меню
-                if (item.isChecked()) menu.findItem(R.id.action_about).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-                else if (!item.isChecked())menu.findItem(R.id.action_about).setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
-                break;
+//            case 4:
+//                item.setChecked(!item.isChecked());         //обработка чек-бокса в меню
+//                if (item.isChecked()) menu.findItem(R.id.action_about).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+//                else if (!item.isChecked())menu.findItem(R.id.action_about).setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+//                break;
         }
         return super.onOptionsItemSelected(item);
     }

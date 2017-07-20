@@ -53,6 +53,8 @@
     <string name="btn_comma">,</string>
     <string name="calculator">Calculator</string>
     <string name="del_t5">DEL</string>
+    <string name="rename_tasks_settings">Rename tasks</string>
+    <string name="general_settings">GENERAL</string>
 
 
 </resources>

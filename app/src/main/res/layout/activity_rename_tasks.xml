@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.oleman.androidtasks.Settings.RenameTasksActivity">
+
+    <EditText
+        android:id="@+id/nameTask1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Task 1"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/nameTask2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/nameTask1"
+        android:layout_below="@+id/nameTask1"
+        android:layout_alignEnd="@+id/nameTask1"
+        android:ems="10"
+        android:hint="Task 2"
+        android:inputType="textPersonName"
+        android:layout_marginTop="8dp"/>
+
+    <EditText
+        android:id="@+id/nameTask3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/nameTask1"
+        android:layout_below="@+id/nameTask2"
+        android:layout_alignEnd="@+id/nameTask1"
+        android:ems="10"
+        android:hint="Task 3"
+        android:inputType="textPersonName"
+        android:layout_marginTop="8dp"/>
+
+    <EditText
+        android:id="@+id/nameTask4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/nameTask1"
+        android:layout_below="@+id/nameTask3"
+        android:layout_alignEnd="@+id/nameTask1"
+        android:ems="10"
+        android:hint="Task 4"
+        android:inputType="textPersonName"
+        android:layout_marginTop="8dp"/>
+
+
+    <EditText
+        android:id="@+id/nameTask5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/nameTask1"
+        android:layout_below="@+id/nameTask4"
+        android:layout_alignEnd="@+id/nameTask1"
+        android:ems="10"
+        android:hint="Task 5"
+        android:inputType="textPersonName"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/btnSave_rename"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/nameTask5"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_result_selector_t5"
+        android:text="Save"
+        android:textColor="@color/white" />
+</RelativeLayout>

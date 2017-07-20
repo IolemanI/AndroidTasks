@@ -6,9 +6,13 @@
     <color name="colorPrimary">#0288d1</color>
     <color name="colorPrimaryDark">#1565c0</color>
     <color name="colorPrimaryLight">#29b6f6</color>
+    <color name="colorPrimaryLightest">#b3e5fc</color>
     <color name="colorAccent">#f50057</color>
     <color name="colorRed">#ff4050</color>
     <color name="colorGreen">#61be65</color>
+
+
+    <color name="colorRename_settings">#e0e0e0</color>
 
 
 

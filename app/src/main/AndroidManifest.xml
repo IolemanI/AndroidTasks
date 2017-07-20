@@ -23,7 +23,8 @@
         <activity android:name=".tasks.Task3Activity" />
         <activity android:name=".tasks.Task4Activity" />
         <activity android:name=".tasks.Task5Activity" />
-        <activity android:name=".Settings.ActivitySettings"></activity>
+        <activity android:name=".Settings.ActivitySettings" />
+        <activity android:name=".Settings.RenameTasksActivity"></activity>
     </application>
 
 </manifest>
