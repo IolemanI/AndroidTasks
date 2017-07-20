@@ -5,16 +5,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.oleman.androidtasks.tasks.Task1Activity;
 import com.oleman.androidtasks.tasks.Task2Activity;
 import com.oleman.androidtasks.tasks.Task3Activity;
 import com.oleman.androidtasks.tasks.Task4Activity;
+import com.oleman.androidtasks.tasks.Task5Activity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -26,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button task2Btn;
     private Button task3Btn;
     private Button task4Btn;
+    private Button task5Btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +42,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         task2Btn = (Button) findViewById(R.id.task2Btn);
         task3Btn = (Button) findViewById(R.id.task3Btn);
         task4Btn = (Button) findViewById(R.id.task4Btn);
+        task5Btn = (Button) findViewById(R.id.task5Btn);
 
         task1Btn.setOnClickListener(this);
         task2Btn.setOnClickListener(this);
         task3Btn.setOnClickListener(this);
         task4Btn.setOnClickListener(this);
+        task5Btn.setOnClickListener(this);
 
         registerForContextMenu(task1Btn); //регистрация контекстного меню для кнопок
         registerForContextMenu(task2Btn);
         registerForContextMenu(task3Btn);
         registerForContextMenu(task4Btn);
+        registerForContextMenu(task5Btn);
     }
 
     @Override        // создание контекстного меню
@@ -64,6 +72,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.task4Btn:
                 menu.add(0, 4, 0, "Info");
+                break;
+            case R.id.task5Btn:
+                menu.add(0, 5, 0, "Info");
                 break;
         }
     }
@@ -83,6 +94,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case 4:
                 Toast.makeText(MainActivity.this, "Firebase chat.", Toast.LENGTH_LONG).show();
+                break;
+            case 5:
+                Toast.makeText(MainActivity.this, "ListView experiments.", Toast.LENGTH_LONG).show();
                 break;
         }
         return super.onContextItemSelected(item);
@@ -143,7 +157,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.d(TAG, "Open Task #4.");
 
                 break;
-//            case R.id.task5Btn:
+            case R.id.task5Btn:
+                Intent intent5 = new Intent(this, Task5Activity.class);
+                startActivity(intent5);
+                Log.d(TAG, "Open Task #5.");
+
+                break;
+//            case R.id.task6Btn:
 //                Log.d(TAG, "Task #4 clicked.");
 //
 //                Toast toast = Toast.makeText(MainActivity.this, "In developing.", Toast.LENGTH_SHORT);

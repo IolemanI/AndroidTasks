@@ -1,11 +1,7 @@
 package com.oleman.androidtasks.tasks;
 
-import android.graphics.Color;
-import android.support.constraint.ConstraintLayout;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -18,9 +14,7 @@ public class Task1Activity extends AppCompatActivity implements View.OnClickList
     private Button redBtn;
     private Button greenBtn;
     private Button blueBtn;
-
     private TextView text;
-
     private LinearLayout layout;
 
     @Override
@@ -29,9 +23,7 @@ public class Task1Activity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_task1);
 
         text = (TextView) findViewById(R.id.textTask1);
-
         layout = (LinearLayout) findViewById(R.id.task1_layout);
-
         redBtn = (Button) findViewById(R.id.redBtn);
         greenBtn = (Button) findViewById(R.id.greenBtn);
         blueBtn = (Button) findViewById(R.id.blueBtn);

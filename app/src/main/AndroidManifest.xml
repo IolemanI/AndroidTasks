@@ -11,7 +11,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:supportsRtl">
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,8 +20,10 @@
         </activity>
         <activity android:name=".tasks.Task1Activity" />
         <activity android:name=".tasks.Task2Activity" />
-        <activity android:name=".tasks.Task3Activity"/>
-        <activity android:name=".tasks.Task4Activity"/>
+        <activity android:name=".tasks.Task3Activity" />
+        <activity android:name=".tasks.Task4Activity" />
+        <activity android:name=".tasks.Task5Activity" />
+        <activity android:name=".Settings.ActivitySettings"></activity>
     </application>
 
 </manifest>

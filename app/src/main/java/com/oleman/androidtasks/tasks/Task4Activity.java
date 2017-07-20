@@ -2,19 +2,17 @@ package com.oleman.androidtasks.tasks;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.database.FirebaseListAdapter;
@@ -22,7 +20,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
-import com.oleman.androidtasks.Message;
+import com.oleman.androidtasks.Firebase.Message;
 import com.oleman.androidtasks.R;
 
 
@@ -31,7 +29,7 @@ public class Task4Activity extends AppCompatActivity implements View.OnClickList
     private static int SIGN_IN_REQUEST_CODE = 1;
     private FirebaseListAdapter<Message> adapter;    // Это дженерик, который обеспечивает поддержку списка сообщений.
                                                      // В качестве параметризированного типа у него будет наш класс Message
-    private Button sendBtn;
+    FloatingActionButton sendBtn;
     private RelativeLayout activity;
 
     @Override
@@ -40,7 +38,7 @@ public class Task4Activity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_task4);
 
         activity = (RelativeLayout) findViewById(R.id.activity_main);
-        sendBtn = (Button) findViewById(R.id.button_send_task4);
+        sendBtn = (FloatingActionButton) findViewById(R.id.button_send_task4);
         sendBtn.setOnClickListener(this);
 
         // создание окна авторизации
@@ -62,13 +60,14 @@ public class Task4Activity extends AppCompatActivity implements View.OnClickList
         adapter = new FirebaseListAdapter<Message>(this, Message.class, R.layout.item_task4, FirebaseDatabase.getInstance().getReference()) {
             @Override
             protected void populateView(View v, Message model, int position) {
-                TextView message, autor, time;
-                message = (TextView)v.findViewById(R.id.tv_user_task_4);
-                autor = (TextView)v.findViewById(R.id.tv_message_task4);
+
+                TextView message, author, time;
+                message = (TextView)v.findViewById(R.id.tv_message_task4);
+                author = (TextView)v.findViewById(R.id.tv_user_task_4);
                 time = (TextView)v.findViewById(R.id.tv_time_task4);
 
                 message.setText(model.getTextMessage());
-                autor.setText(model.getAuthor());
+                author.setText(model.getAuthor());
                 time.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)", model.getTimeMessage()));
             }
         };

@@ -1,4 +1,4 @@
-package com.oleman.androidtasks;
+package com.oleman.androidtasks.Firebase;
 
 import android.app.NotificationManager;
 import android.content.Context;
@@ -10,6 +10,7 @@ import android.support.v4.app.NotificationCompat;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.oleman.androidtasks.R;
 import com.oleman.androidtasks.tasks.Task4Activity;
 
 public class MyFirebaseMassagingService extends FirebaseMessagingService{

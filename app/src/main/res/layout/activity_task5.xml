@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main_task5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.oleman.androidtasks.tasks.Task5Activity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/actionType_t5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:ems="1"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/secondaryText_t5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:ems="11"
+                android:textAlignment="textEnd"
+                android:textSize="24sp"
+                tools:ignore="RelativeOverlap" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/mainText_t5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:hint="@string/calculator"
+            android:textAlignment="textEnd"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/button_container_task5"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/actions_task5"
+        android:background="@color/main_color_task5"
+        android:layout_below="@+id/linearLayout2"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:id="@+id/first_t5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn7_t5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0sp"
+                android:layout_weight="1"
+                android:background="@drawable/button_selector_t5"
+                android:fontFamily="monospace"
+                android:padding="0dp"
+                android:text="@string/btn7"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                tools:ignore="NestedWeights" />
+
+            <Button
+                android:id="@+id/btn4_t5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_selector_t5"
+                android:fontFamily="monospace"
+                android:padding="0dp"
+                android:text="@string/btn4"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/btn1_t5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_selector_t5"
+                android:fontFamily="monospace"
+                android:padding="0dp"
+                android:text="@string/btn1"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/btn00_t5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_selector_t5"
+                android:fontFamily="monospace"
+                android:padding="0dp"
+                android:text="@string/btn00"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/second_t5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn8_t5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_selector_t5"
+                android:fontFamily="monospace"
+                android:padding="0dp"
+                android:text="@string/btn8"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                tools:ignore="NestedWeights" />
+
+            <Button
+                android:id="@+id/btn5_t5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_selector_t5"
+                android:fontFamily="monospace"
+                android:padding="0dp"
+                android:text="@string/btn5"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/btn2_t5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_selector_t5"
+                android:fontFamily="monospace"
+                android:padding="0dp"
+                android:text="@string/btn2"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/btn0_t5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_selector_t5"
+                android:fontFamily="monospace"
+                android:padding="0dp"
+                android:text="@string/btn0"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/third_t5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn9_t5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_selector_t5"
+                android:fontFamily="monospace"
+                android:padding="0dp"
+                android:text="@string/btn9"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                tools:ignore="NestedWeights" />
+
+            <Button
+                android:id="@+id/btn6_t5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_selector_t5"
+                android:fontFamily="monospace"
+                android:padding="0dp"
+                android:text="@string/btn6"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/btn3_t5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_selector_t5"
+                android:fontFamily="monospace"
+                android:padding="0dp"
+                android:text="@string/btn3"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/btb_comma_t5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_selector_t5"
+                android:fontFamily="monospace"
+                android:padding="0dp"
+                android:text="@string/btn_comma"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/actions_task5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:background="@color/dark_color_task5"
+        android:orientation="vertical"
+        android:layout_below="@+id/linearLayout2">
+
+        <ImageButton
+            android:id="@+id/del_t5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="false"
+            android:background="@drawable/button_dark_selector_t5"
+            android:contentDescription="@string/del_t5"
+            android:padding="14dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/delete_t5" />
+
+        <Button
+            android:id="@+id/div_t5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_dark_selector_t5"
+            android:fontFamily="monospace"
+            android:padding="0dp"
+            android:text="@string/dev_t5"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="36sp" />
+
+        <Button
+            android:id="@+id/mult_t5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_dark_selector_t5"
+            android:fontFamily="monospace"
+            android:padding="0dp"
+            android:text="@string/mult_t5"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="36sp" />
+
+        <Button
+            android:id="@+id/sub_t5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_dark_selector_t5"
+            android:fontFamily="monospace"
+            android:padding="0dp"
+            android:text="@string/min_t5"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="36sp" />
+
+        <Button
+            android:id="@+id/sum_t5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_dark_selector_t5"
+            android:fontFamily="monospace"
+            android:padding="0dp"
+            android:text="@string/sum_t5"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="36sp" />
+
+        <Button
+            android:id="@+id/res_t5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_result_selector_t5"
+            android:fontFamily="monospace"
+            android:padding="0dp"
+            android:text="@string/res_t5"
+            android:textColor="@color/white"
+            android:textSize="36sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+
+
+
+
