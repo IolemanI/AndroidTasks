@@ -5,35 +5,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.oleman.androidtasks.Settings.ActivitySettings;
+import com.oleman.androidtasks.Settings.FileAdapter;
 import com.oleman.androidtasks.tasks.Task1Activity;
 import com.oleman.androidtasks.tasks.Task2Activity;
 import com.oleman.androidtasks.tasks.Task3Activity;
 import com.oleman.androidtasks.tasks.Task4Activity;
 import com.oleman.androidtasks.tasks.Task5Activity;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final int LAYOUT = R.layout.activity_main;
-    public static final String TAG = "myLogs";
-    private static final String FILENAME = "AndroidTasks";
+    public static final String LOG_TAG = "myLogs";
+
 
 
     private Menu menu;  //параметр выведен для управления чек-боксом в меню.
@@ -48,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(LAYOUT);
 
-        Log.d(TAG, "Find the view-elements."); //запись логов
+        Log.d(LOG_TAG, "Find the view-elements."); //запись логов
         task1Btn = (Button) findViewById(R.id.task1Btn);
         task2Btn = (Button) findViewById(R.id.task2Btn);
         task3Btn = (Button) findViewById(R.id.task3Btn);
@@ -67,24 +59,49 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         registerForContextMenu(task4Btn);
         registerForContextMenu(task5Btn);
 
-        writeFile();
+        renameButtons();
+
     }
 
+    @Override
+    protected void onResume() {
+        renameButtons();
+        super.onResume();
+    }
 
-    private void writeFile() {
-        try {
-            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
-                    openFileOutput(FILENAME, MODE_PRIVATE)));
+    private void renameButtons(){
+        FileAdapter fileAdapter = new FileAdapter(this);
+        ArrayList<String> nameList = fileAdapter.getNameList();
 
-            bw.write("File for AndroidTask settings");
-            bw.close();
-            Log.d(TAG, "File has been written!");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (fileAdapter.isAvailable()){
+            for (int i=0; i<nameList.size(); i++){
+                switch (i){
+                    case 0:
+                        task1Btn.setText(nameList.get(i));
+                        break;
+                    case 1:
+                        task2Btn.setText(nameList.get(i));
+                        break;
+                    case 2:
+                        task3Btn.setText(nameList.get(i));
+                        break;
+                    case 3:
+                        task4Btn.setText(nameList.get(i));
+                        break;
+                    case 4:
+                        task5Btn.setText(nameList.get(i));
+                        break;
+                }
+            }
+        }else {
+            task1Btn.setText("Task 1");
+            task2Btn.setText("Task 2");
+            task3Btn.setText("Task 3");
+            task4Btn.setText("Task 4");
+            task5Btn.setText("Task 5");
         }
     }
+
 
     @Override        // создание контекстного меню
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
@@ -168,34 +185,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.task1Btn:
                 Intent intent1 = new Intent(this, Task1Activity.class);
                 startActivity(intent1);
-                Log.d(TAG, "Open Task #1.");
+                Log.d(LOG_TAG, "Open Task #1.");
                 break;
             case R.id.task2Btn:
                 Intent intent2 = new Intent(this, Task2Activity.class);
                 startActivity(intent2);
-                Log.d(TAG, "Open Task #2.");
+                Log.d(LOG_TAG, "Open Task #2.");
 
                 break;
             case R.id.task3Btn:
                 Intent intent3 = new Intent(this, Task3Activity.class);
                 startActivity(intent3);
-                Log.d(TAG, "Open Task #3.");
+                Log.d(LOG_TAG, "Open Task #3.");
 
                 break;
             case R.id.task4Btn:
                 Intent intent4 = new Intent(this, Task4Activity.class);
                 startActivity(intent4);
-                Log.d(TAG, "Open Task #4.");
+                Log.d(LOG_TAG, "Open Task #4.");
 
                 break;
             case R.id.task5Btn:
                 Intent intent5 = new Intent(this, Task5Activity.class);
                 startActivity(intent5);
-                Log.d(TAG, "Open Task #5.");
+                Log.d(LOG_TAG, "Open Task #5.");
 
                 break;
 //            case R.id.task6Btn:
-//                Log.d(TAG, "Task #4 clicked.");
+//                Log.d(LOG_TAG, "Task #4 clicked.");
 //
 //                Toast toast = Toast.makeText(MainActivity.this, "In developing.", Toast.LENGTH_SHORT);
 //                toast.setGravity(Gravity.CENTER, 0, 0);

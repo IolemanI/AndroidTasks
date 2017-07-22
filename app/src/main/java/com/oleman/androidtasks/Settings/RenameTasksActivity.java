@@ -1,6 +1,5 @@
 package com.oleman.androidtasks.Settings;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,20 +8,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.oleman.androidtasks.MainActivity;
 import com.oleman.androidtasks.R;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+
+import static com.oleman.androidtasks.MainActivity.LOG_TAG;
 
 public class RenameTasksActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String FILENAME = "AndroidTasks";
-    public static final String TAG = "myLogs";
+    FileAdapter fileAdapter;
 
     private EditText task1Txt;
     private EditText task2Txt;
@@ -31,6 +25,7 @@ public class RenameTasksActivity extends AppCompatActivity implements View.OnCli
     private EditText task5Txt;
 
     private Button saveBtn;
+    private Button readBtn;
 
     private Button task1Btn;
     private Button task2Btn;
@@ -52,8 +47,10 @@ public class RenameTasksActivity extends AppCompatActivity implements View.OnCli
         saveBtn = (Button) findViewById(R.id.btnSave_rename);
         saveBtn.setOnClickListener(this);
 
+        readBtn = (Button) findViewById(R.id.readFile_rename);
+        readBtn.setOnClickListener(this);
 
-        readFile();
+        fileAdapter = new FileAdapter(getApplicationContext());
 
     }
 
@@ -61,39 +58,20 @@ public class RenameTasksActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnSave_rename:
-                writeFile(task1Txt.getText().toString());
+                fileAdapter.writeFile(task1Txt.getText().toString()+ ", " +task2Txt.getText().toString()+ ", "
+                        +task3Txt.getText().toString()+ ", " +task4Txt.getText().toString()+ ", "
+                        +task5Txt.getText().toString());
+                finish();
+
+                break;
+            case R.id.readFile_rename:
+                if (fileAdapter.isAvailable()) {
+                    Toast.makeText(this, "File is available!", Toast.LENGTH_SHORT).show();
+                } else Toast.makeText(this, "File is not available!", Toast.LENGTH_SHORT).show();
+
                 break;
         }
     }
 
-    private void readFile() {
-        try {
-            BufferedReader br = new BufferedReader(new InputStreamReader(
-                    openFileInput(FILENAME)));
-            String s = "";
 
-            while ((s = br.readLine()) != null){
-                Toast.makeText(this, s, Toast.LENGTH_LONG).show();
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void writeFile(String s) {
-        try {
-            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
-                    openFileOutput(FILENAME, MODE_PRIVATE)));
-
-            bw.write(s);
-            bw.close();
-            Log.d(TAG, "File has been written!");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
