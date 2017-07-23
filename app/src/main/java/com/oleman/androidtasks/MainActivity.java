@@ -8,6 +8,8 @@ import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private static final int LAYOUT = R.layout.activity_main;
     public static final String LOG_TAG = "myLogs";
+    private final int START_ANIMATION = 1;
 
 
 
@@ -36,6 +39,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button task3Btn;
     private Button task4Btn;
     private Button task5Btn;
+
+    Animation anim1 = null;
+    Animation anim2 = null;
+    Animation anim3 = null;
+    Animation anim4 = null;
+    Animation anim5 = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         registerForContextMenu(task5Btn);
 
         renameButtons();
+        startAnimation();
 
     }
 
@@ -154,7 +164,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_activity_menu, menu);
 
-//        menu.add(1,4,3,"Display About").setCheckable(true).setChecked(true);  //программно добавляэм пункт меню.
+        menu.add(1,START_ANIMATION,3,"Start animation");  //программно добавляэм пункт меню.
         this.menu = menu;
         return true;
     }
@@ -171,11 +181,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent = new Intent(this, ActivitySettings.class);
                 startActivity(intent);
                 break;
-//            case 4:
-//                item.setChecked(!item.isChecked());         //обработка чек-бокса в меню
-//                if (item.isChecked()) menu.findItem(R.id.action_about).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-//                else if (!item.isChecked())menu.findItem(R.id.action_about).setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
-//                break;
+            case START_ANIMATION:
+                startAnimation();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -226,5 +234,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //
 //                break;
         }
+    }
+
+    private void startAnimation(){
+        anim1 = AnimationUtils.loadAnimation(this, R.anim.task_btns_anim);
+        anim2 = AnimationUtils.loadAnimation(this, R.anim.task_btns_anim);
+        anim3 = AnimationUtils.loadAnimation(this, R.anim.task_btns_anim);
+        anim4 = AnimationUtils.loadAnimation(this, R.anim.task_btns_anim);
+        anim5 = AnimationUtils.loadAnimation(this, R.anim.task_btns_anim);
+
+        task1Btn.startAnimation(anim1);
+        anim2.setStartOffset(500);
+        task2Btn.startAnimation(anim2);
+        anim3.setStartOffset(1000);
+        task3Btn.startAnimation(anim3);
+        anim4.setStartOffset(1500);
+        task4Btn.startAnimation(anim4);
+        anim5.setStartOffset(2000);
+        task5Btn.startAnimation(anim5);
+
     }
 }
