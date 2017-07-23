@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.oleman.androidtasks.Settings.ActivitySettings;
 import com.oleman.androidtasks.Settings.FileAdapter;
+import com.oleman.androidtasks.Settings.RenameTasksActivity;
 import com.oleman.androidtasks.tasks.Task1Activity;
 import com.oleman.androidtasks.tasks.Task2Activity;
 import com.oleman.androidtasks.tasks.Task3Activity;
@@ -20,6 +21,7 @@ import com.oleman.androidtasks.tasks.Task4Activity;
 import com.oleman.androidtasks.tasks.Task5Activity;
 
 import java.util.ArrayList;
+import java.util.zip.Inflater;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -142,7 +144,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(MainActivity.this, "Firebase chat.", Toast.LENGTH_LONG).show();
                 break;
             case 5:
-                Toast.makeText(MainActivity.this, "ListView experiments.", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Calculator.", Toast.LENGTH_LONG).show();
                 break;
         }
         return super.onContextItemSelected(item);
