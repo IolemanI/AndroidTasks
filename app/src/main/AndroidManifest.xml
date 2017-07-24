@@ -18,13 +18,71 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".tasks.Task1Activity" />
-        <activity android:name=".tasks.Task2Activity" />
-        <activity android:name=".tasks.Task3Activity" />
-        <activity android:name=".tasks.Task4Activity" />
-        <activity android:name=".tasks.Task5Activity" />
         <activity android:name=".Settings.ActivitySettings" />
-        <activity android:name=".Settings.RenameTasksActivity"></activity>
+        <activity android:name=".Settings.RenameTasksActivity" />
+        <!--<activity android:name=".tasks.Task1Activity" />-->
+        <!--<activity android:name=".tasks.Task2Activity" />-->
+        <!--<activity android:name=".tasks.Task3Activity" />-->
+        <!--<activity android:name=".tasks.Task4Activity" />-->
+        <!--<activity android:name=".tasks.Task5Activity" />-->
+        <activity android:name=".tasks.Task1Activity"
+            android:label="@string/title_activity_task1"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.oleman.androidtasks.MainActivity" />
+            <intent-filter>
+                <action android:name="androidtasks.intent.action.colorpicker" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".tasks.Task2Activity"
+            android:label="@string/title_activity_task2"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.oleman.androidtasks.MainActivity" />
+        </activity>
+        <activity android:name=".tasks.Task3Activity"
+            android:label="@string/title_activity_task3"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.oleman.androidtasks.MainActivity" />
+            <intent-filter>
+                <!--intent action has written been for example-->
+                <action android:name="androidtasks.intent.action.colorpicker" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".tasks.Task4Activity"
+            android:label="@string/title_activity_task4"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.oleman.androidtasks.MainActivity" />
+        </activity>
+        <activity android:name=".tasks.Task5Activity"
+            android:label="@string/title_activity_task5"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.oleman.androidtasks.MainActivity" />
+        </activity>
+        <activity android:name=".tasks.Task6Activity"
+            android:label="@string/title_activity_task6"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.oleman.androidtasks.MainActivity" />
+            <intent-filter>
+                <!--intent action has written been for example-->
+                <action android:name="androidtasks.intent.action.task6" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

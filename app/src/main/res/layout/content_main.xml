@@ -4,65 +4,89 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/task1Btn"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/tasks_horizontal_margin"
-        android:layout_marginRight="@dimen/tasks_horizontal_margin"
-        android:layout_marginTop="@dimen/first_tasks_horizontal_margin_top"
-        android:background="@color/colorPrimary"
-        android:text="@string/task_1"
-        android:textColor="@android:color/background_light"
-        android:textSize="@dimen/task_button_text_size" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/task2Btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/tasks_horizontal_margin"
-        android:layout_marginRight="@dimen/tasks_horizontal_margin"
-        android:layout_marginTop="@dimen/tasks_horizontal_margin_top"
-        android:background="@color/colorPrimary"
-        android:text="@string/task_2"
-        android:textColor="@android:color/background_light"
-        android:textSize="@dimen/task_button_text_size" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/task3Btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/tasks_horizontal_margin"
-        android:layout_marginRight="@dimen/tasks_horizontal_margin"
-        android:layout_marginTop="@dimen/tasks_horizontal_margin_top"
-        android:background="@color/colorPrimary"
-        android:text="@string/task_3"
-        android:textColor="@android:color/background_light"
-        android:textSize="@dimen/task_button_text_size" />
+            <Button
+                android:id="@+id/task1Btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/tasks_horizontal_margin"
+                android:layout_marginRight="@dimen/tasks_horizontal_margin"
+                android:layout_marginTop="@dimen/first_tasks_horizontal_margin_top"
+                android:background="@color/colorPrimary"
+                android:text="@string/task_1"
+                android:textColor="@android:color/background_light"
+                android:textSize="@dimen/task_button_text_size" />
 
-    <Button
-        android:id="@+id/task4Btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/tasks_horizontal_margin"
-        android:layout_marginRight="@dimen/tasks_horizontal_margin"
-        android:layout_marginTop="@dimen/tasks_horizontal_margin_top"
-        android:background="@color/colorPrimary"
-        android:text="@string/task_4"
-        android:textColor="@android:color/background_light"
-        android:textSize="@dimen/task_button_text_size" />
+            <Button
+                android:id="@+id/task2Btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/tasks_horizontal_margin"
+                android:layout_marginRight="@dimen/tasks_horizontal_margin"
+                android:layout_marginTop="@dimen/tasks_horizontal_margin_top"
+                android:background="@color/colorPrimary"
+                android:text="@string/task_2"
+                android:textColor="@android:color/background_light"
+                android:textSize="@dimen/task_button_text_size" />
 
-    <Button
-        android:id="@+id/task5Btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/tasks_horizontal_margin"
-        android:layout_marginRight="@dimen/tasks_horizontal_margin"
-        android:layout_marginTop="@dimen/tasks_horizontal_margin_top"
-        android:background="@color/colorPrimary"
-        android:text="@string/task_5"
-        android:textColor="@android:color/background_light"
-        android:textSize="@dimen/task_button_text_size" />
+            <Button
+                android:id="@+id/task3Btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/tasks_horizontal_margin"
+                android:layout_marginRight="@dimen/tasks_horizontal_margin"
+                android:layout_marginTop="@dimen/tasks_horizontal_margin_top"
+                android:background="@color/colorPrimary"
+                android:text="@string/task_3"
+                android:textColor="@android:color/background_light"
+                android:textSize="@dimen/task_button_text_size" />
+
+            <Button
+                android:id="@+id/task4Btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/tasks_horizontal_margin"
+                android:layout_marginRight="@dimen/tasks_horizontal_margin"
+                android:layout_marginTop="@dimen/tasks_horizontal_margin_top"
+                android:background="@color/colorPrimary"
+                android:text="@string/task_4"
+                android:textColor="@android:color/background_light"
+                android:textSize="@dimen/task_button_text_size" />
+
+            <Button
+                android:id="@+id/task5Btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/tasks_horizontal_margin"
+                android:layout_marginRight="@dimen/tasks_horizontal_margin"
+                android:layout_marginTop="@dimen/tasks_horizontal_margin_top"
+                android:background="@color/colorPrimary"
+                android:text="@string/task_5"
+                android:textColor="@android:color/background_light"
+                android:textSize="@dimen/task_button_text_size" />
+
+            <Button
+                android:id="@+id/task6Btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/tasks_horizontal_margin"
+                android:layout_marginRight="@dimen/tasks_horizontal_margin"
+                android:layout_marginTop="@dimen/tasks_horizontal_margin_top"
+                android:background="@color/colorPrimary"
+                android:text="@string/task_6"
+                android:textColor="@android:color/background_light"
+                android:textSize="@dimen/task_button_text_size" />
+
+        </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>

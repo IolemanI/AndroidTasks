@@ -166,7 +166,7 @@ public class FileAdapter {
                 // следующий элемент
                 xpp.next();
             }
-            Log.d(LOG_TAG, "END_DOCUMENT");
+//            Log.d(LOG_TAG, "END_DOCUMENT");
         } catch (XmlPullParserException e) {
             e.printStackTrace();
         } catch (IOException e) {

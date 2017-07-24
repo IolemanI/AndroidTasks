@@ -6,87 +6,104 @@
     android:layout_height="match_parent"
     tools:context="com.oleman.androidtasks.Settings.RenameTasksActivity">
 
-    <EditText
-        android:id="@+id/nameTask1"
+    <ScrollView
+        android:id="@+id/scrollView_rename"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Task 1"
-        android:inputType="textPersonName" />
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btnSave_rename"
+        android:paddingBottom="16dp">
 
-    <EditText
-        android:id="@+id/nameTask2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/nameTask1"
-        android:layout_below="@+id/nameTask1"
-        android:layout_alignEnd="@+id/nameTask1"
-        android:ems="10"
-        android:hint="Task 2"
-        android:inputType="textPersonName"
-        android:layout_marginTop="8dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/nameTask3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/nameTask1"
-        android:layout_below="@+id/nameTask2"
-        android:layout_alignEnd="@+id/nameTask1"
-        android:ems="10"
-        android:hint="Task 3"
-        android:inputType="textPersonName"
-        android:layout_marginTop="8dp"/>
+            <EditText
+                android:id="@+id/nameTask1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/task_1_renameBtns"
+                android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/nameTask4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/nameTask1"
-        android:layout_below="@+id/nameTask3"
-        android:layout_alignEnd="@+id/nameTask1"
-        android:ems="10"
-        android:hint="Task 4"
-        android:inputType="textPersonName"
-        android:layout_marginTop="8dp"/>
+            <EditText
+                android:id="@+id/nameTask2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="@string/task_2_renameBtns"
+                android:inputType="textPersonName" />
 
+            <EditText
+                android:id="@+id/nameTask3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="@string/task_3_renameBtns"
+                android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/nameTask5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/nameTask1"
-        android:layout_below="@+id/nameTask4"
-        android:layout_alignEnd="@+id/nameTask1"
-        android:ems="10"
-        android:hint="Task 5"
-        android:inputType="textPersonName"
-        android:layout_marginTop="8dp"/>
+            <EditText
+                android:id="@+id/nameTask4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="@string/task_4_renameBtns"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/nameTask5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="@string/task_5_renameBtns"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/nameTask6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="@string/task_6_renameBtns"
+                android:inputType="textPersonName" />
+
+        </LinearLayout>
+    </ScrollView>
+
 
     <Button
         android:id="@+id/btnSave_rename"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/nameTask5"
+        android:layout_alignStart="@+id/scrollView_rename"
         android:layout_marginBottom="16dp"
+
+
+        android:layout_marginStart="16dp"
         android:background="@drawable/button_result_selector_t5"
-        android:text="Save"
+        android:text="@string/save_renameBtns"
         android:textColor="@color/white" />
 
     <Button
         android:id="@+id/readFile_rename"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/btnSave_rename"
-        android:layout_alignBottom="@+id/btnSave_rename"
-        android:layout_alignEnd="@+id/nameTask5"
+        android:layout_alignEnd="@+id/scrollView_rename"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+
+
         android:background="@drawable/button_result_selector_t5"
-        android:text="ReadFile"
+        android:text="@string/readfile_renameBtns"
         android:textColor="@color/white" />
 </RelativeLayout>

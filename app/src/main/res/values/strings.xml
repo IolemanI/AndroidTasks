@@ -5,9 +5,17 @@
     <string name="task_3">Task 3</string>
     <string name="task_4">Task 4</string>
     <string name="task_5">Task 5</string>
+    <string name="task_6">Task 6</string>
     <string name="action_about">About</string>
     <string name="action_setting">Setting</string>
     <string name="action_display_about">Display About</string>
+
+    <string name="title_activity_task1">Color picker</string>
+    <string name="title_activity_task2">Button creator</string>
+    <string name="title_activity_task3">SeekBar</string>
+    <string name="title_activity_task4">Firebase chat</string>
+    <string name="title_activity_task5">Calculator</string>
+    <string name="title_activity_task6">Task6Activity</string>
 
     <!--Task 1-->
     <string name="tap_button">Tap button</string>
@@ -53,8 +61,25 @@
     <string name="btn_comma">,</string>
     <string name="calculator">Calculator</string>
     <string name="del_t5">DEL</string>
+
+    <!--Task 6-->
+    <string name="open_email_activity_t6">Make call!</string>
+    <string name="open_color_picker_t6">Open color-picker</string>
+
     <string name="rename_tasks_settings">Rename tasks</string>
     <string name="general_settings">GENERAL</string>
+
+    <string name="readfile_renameBtns">ReadFile</string>
+    <string name="save_renameBtns">Save</string>
+    <string name="task_1_renameBtns">Task 1</string>
+    <string name="task_2_renameBtns">Task 2</string>
+    <string name="task_3_renameBtns">Task 3</string>
+    <string name="task_4_renameBtns">Task 4</string>
+    <string name="task_5_renameBtns">Task 5</string>
+    <string name="task_6_renameBtns">Task 6</string>
+    <string name="light_btn_t1">LIGTH</string>
+    <string name="middle_btn_t1">MIDDLE</string>
+    <string name="dark_btn_t1">DARK</string>
 
 
 </resources>

@@ -13,7 +13,7 @@
         android:layout_weight="1">
 
         <Button
-            android:id="@+id/buttonRed"
+            android:id="@+id/buttonRed_t3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -22,7 +22,7 @@
             tools:ignore="ButtonStyle,NestedWeights" />
 
         <Button
-            android:id="@+id/buttonGreen"
+            android:id="@+id/buttonGreen_t3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"

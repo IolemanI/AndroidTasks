@@ -1,6 +1,7 @@
 package com.oleman.androidtasks.Settings;
 
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +26,7 @@ public class RenameTasksActivity extends AppCompatActivity implements View.OnCli
     private EditText task3Txt;
     private EditText task4Txt;
     private EditText task5Txt;
+    private EditText task6Txt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class RenameTasksActivity extends AppCompatActivity implements View.OnCli
         task3Txt = (EditText) findViewById(R.id.nameTask3);
         task4Txt = (EditText) findViewById(R.id.nameTask4);
         task5Txt = (EditText) findViewById(R.id.nameTask5);
+        task6Txt = (EditText) findViewById(R.id.nameTask6);
 
         Button saveBtn = (Button) findViewById(R.id.btnSave_rename);
         Button readBtn = (Button) findViewById(R.id.readFile_rename);
@@ -52,17 +55,20 @@ public class RenameTasksActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnSave_rename:
-                fileAdapter.writeFile(task1Txt.getText().toString()+ ", " +task2Txt.getText().toString()+ ", "
-                        +task3Txt.getText().toString()+ ", " +task4Txt.getText().toString()+ ", "
-                        +task5Txt.getText().toString());
+                fileAdapter.writeFile(task1Txt.getText().toString()+ ", "
+                        +task2Txt.getText().toString()+ ", "
+                        +task3Txt.getText().toString()+ ", "
+                        +task4Txt.getText().toString()+ ", "
+                        +task5Txt.getText().toString()+ ", "
+                        +task6Txt.getText().toString()
+                );
                 finish();
 
                 break;
             case R.id.readFile_rename:
                 if (fileAdapter.isAvailable()) {
-                    Toast.makeText(this, "File is available!", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(this, getIntent().getStringExtra("1"), Toast.LENGTH_SHORT).show();
-                } else Toast.makeText(this, "File is not available!", Toast.LENGTH_SHORT).show();
+                    Snackbar.make(view, "File is available!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                } else Snackbar.make(view, "File is not available!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
 
                 break;
         }
@@ -90,14 +96,18 @@ public class RenameTasksActivity extends AppCompatActivity implements View.OnCli
                     case 4:
                         task5Txt.setText(nameList.get(i));
                         break;
+                    case 5:
+                        task6Txt.setText(nameList.get(i));
+                        break;
                 }
             }
         }else {
-            task1Txt.setText("Task 1");
-            task2Txt.setText("Task 2");
-            task3Txt.setText("Task 3");
-            task4Txt.setText("Task 4");
-            task5Txt.setText("Task 5");
+            task1Txt.setText(R.string.task_1);
+            task2Txt.setText(R.string.task_2);
+            task3Txt.setText(R.string.task_3);
+            task4Txt.setText(R.string.task_4);
+            task5Txt.setText(R.string.task_5);
+            task6Txt.setText(R.string.task_6);
         }
     }
 

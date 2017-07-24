@@ -21,6 +21,7 @@ import com.oleman.androidtasks.tasks.Task2Activity;
 import com.oleman.androidtasks.tasks.Task3Activity;
 import com.oleman.androidtasks.tasks.Task4Activity;
 import com.oleman.androidtasks.tasks.Task5Activity;
+import com.oleman.androidtasks.tasks.Task6Activity;
 
 import java.util.ArrayList;
 import java.util.zip.Inflater;
@@ -39,12 +40,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button task3Btn;
     private Button task4Btn;
     private Button task5Btn;
+    private Button task6Btn;
 
     Animation anim1 = null;
     Animation anim2 = null;
     Animation anim3 = null;
     Animation anim4 = null;
     Animation anim5 = null;
+    Animation anim6 = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,18 +60,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         task3Btn = (Button) findViewById(R.id.task3Btn);
         task4Btn = (Button) findViewById(R.id.task4Btn);
         task5Btn = (Button) findViewById(R.id.task5Btn);
+        task6Btn = (Button) findViewById(R.id.task6Btn);
 
         task1Btn.setOnClickListener(this);
         task2Btn.setOnClickListener(this);
         task3Btn.setOnClickListener(this);
         task4Btn.setOnClickListener(this);
         task5Btn.setOnClickListener(this);
+        task6Btn.setOnClickListener(this);
 
         registerForContextMenu(task1Btn); //регистрация контекстного меню для кнопок
         registerForContextMenu(task2Btn);
         registerForContextMenu(task3Btn);
         registerForContextMenu(task4Btn);
         registerForContextMenu(task5Btn);
+        registerForContextMenu(task6Btn);
 
         renameButtons();
         startAnimation();
@@ -80,40 +86,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         renameButtons();
         super.onResume();
     }
-
-    private void renameButtons(){
-        FileAdapter fileAdapter = new FileAdapter(this);
-        ArrayList<String> nameList = fileAdapter.getNameList();
-
-        if (fileAdapter.isAvailable()){
-            for (int i=0; i<nameList.size(); i++){
-                switch (i){
-                    case 0:
-                        task1Btn.setText(nameList.get(i));
-                        break;
-                    case 1:
-                        task2Btn.setText(nameList.get(i));
-                        break;
-                    case 2:
-                        task3Btn.setText(nameList.get(i));
-                        break;
-                    case 3:
-                        task4Btn.setText(nameList.get(i));
-                        break;
-                    case 4:
-                        task5Btn.setText(nameList.get(i));
-                        break;
-                }
-            }
-        }else {
-            task1Btn.setText("Task 1");
-            task2Btn.setText("Task 2");
-            task3Btn.setText("Task 3");
-            task4Btn.setText("Task 4");
-            task5Btn.setText("Task 5");
-        }
-    }
-
 
     @Override        // создание контекстного меню
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
@@ -133,6 +105,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.task5Btn:
                 menu.add(0, 5, 0, "Info");
+                break;
+            case R.id.task6Btn:
+                menu.add(0, 6, 0, "Info");
                 break;
         }
     }
@@ -155,6 +130,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case 5:
                 Toast.makeText(MainActivity.this, "Calculator.", Toast.LENGTH_LONG).show();
+                break;
+            case 6:
+                Toast.makeText(MainActivity.this, "This activity will be opened by using intent-filter.", Toast.LENGTH_LONG).show();
                 break;
         }
         return super.onContextItemSelected(item);
@@ -190,38 +168,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override        // обработка нажятия на кнопку
     public void onClick(View view) {
+        Intent intent;
 
         switch (view.getId()){   //обработка нажатия на кнопки TASK 1, 2, и т.д.
             case R.id.task1Btn:
-                Intent intent1 = new Intent(this, Task1Activity.class);
-                startActivity(intent1);
+                intent = new Intent(this, Task1Activity.class);
+                startActivity(intent);
                 Log.d(LOG_TAG, "Open Task #1.");
                 break;
             case R.id.task2Btn:
-                Intent intent2 = new Intent(this, Task2Activity.class);
-                startActivity(intent2);
+                intent = new Intent(this, Task2Activity.class);
+                startActivity(intent);
                 Log.d(LOG_TAG, "Open Task #2.");
 
                 break;
             case R.id.task3Btn:
-                Intent intent3 = new Intent(this, Task3Activity.class);
-                startActivity(intent3);
+                intent = new Intent(this, Task3Activity.class);
+                startActivity(intent);
                 Log.d(LOG_TAG, "Open Task #3.");
 
                 break;
             case R.id.task4Btn:
-                Intent intent4 = new Intent(this, Task4Activity.class);
-                startActivity(intent4);
+                intent = new Intent(this, Task4Activity.class);
+                startActivity(intent);
                 Log.d(LOG_TAG, "Open Task #4.");
 
                 break;
             case R.id.task5Btn:
-                Intent intent5 = new Intent(this, Task5Activity.class);
-                startActivity(intent5);
+                intent = new Intent(this, Task5Activity.class);
+                startActivity(intent);
                 Log.d(LOG_TAG, "Open Task #5.");
 
                 break;
-//            case R.id.task6Btn:
+            case R.id.task6Btn:
+                intent = new Intent("androidtasks.intent.action.task6");
+                startActivity(intent);
+                Log.d(LOG_TAG, "Open Task #6.");
+
+                break;
+//            case R.id.task7Btn:
 //                Log.d(LOG_TAG, "Task #4 clicked.");
 //
 //                Toast toast = Toast.makeText(MainActivity.this, "In developing.", Toast.LENGTH_SHORT);
@@ -236,22 +221,62 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    private void renameButtons(){
+        FileAdapter fileAdapter = new FileAdapter(this);
+        ArrayList<String> nameList = fileAdapter.getNameList();
+
+        if (fileAdapter.isAvailable()){
+            for (int i=0; i<nameList.size(); i++){
+                switch (i){
+                    case 0:
+                        task1Btn.setText(nameList.get(i));
+                        break;
+                    case 1:
+                        task2Btn.setText(nameList.get(i));
+                        break;
+                    case 2:
+                        task3Btn.setText(nameList.get(i));
+                        break;
+                    case 3:
+                        task4Btn.setText(nameList.get(i));
+                        break;
+                    case 4:
+                        task5Btn.setText(nameList.get(i));
+                        break;
+                    case 5:
+                        task6Btn.setText(nameList.get(i));
+                        break;
+                }
+            }
+        }else {
+            task1Btn.setText(R.string.task_1);
+            task2Btn.setText(R.string.task_2);
+            task3Btn.setText(R.string.task_3);
+            task4Btn.setText(R.string.task_4);
+            task5Btn.setText(R.string.task_5);
+            task6Btn.setText(R.string.task_6);
+        }
+    }
+
     private void startAnimation(){
         anim1 = AnimationUtils.loadAnimation(this, R.anim.task_btns_anim);
         anim2 = AnimationUtils.loadAnimation(this, R.anim.task_btns_anim);
         anim3 = AnimationUtils.loadAnimation(this, R.anim.task_btns_anim);
         anim4 = AnimationUtils.loadAnimation(this, R.anim.task_btns_anim);
         anim5 = AnimationUtils.loadAnimation(this, R.anim.task_btns_anim);
+        anim6 = AnimationUtils.loadAnimation(this, R.anim.task_btns_anim);
 
         task1Btn.startAnimation(anim1);
-        anim2.setStartOffset(500);
+        anim2.setStartOffset(300);
         task2Btn.startAnimation(anim2);
-        anim3.setStartOffset(1000);
+        anim3.setStartOffset(600);
         task3Btn.startAnimation(anim3);
-        anim4.setStartOffset(1500);
+        anim4.setStartOffset(900);
         task4Btn.startAnimation(anim4);
-        anim5.setStartOffset(2000);
+        anim5.setStartOffset(1200);
         task5Btn.startAnimation(anim5);
+        anim6.setStartOffset(1500);
+        task6Btn.startAnimation(anim6);
 
     }
 }
