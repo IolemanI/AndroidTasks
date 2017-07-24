@@ -1,6 +1,7 @@
 package com.oleman.androidtasks.tasks;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ContextMenu;
@@ -21,10 +22,15 @@ public class Task6Activity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_task6);
 
         Button openCPBtn = (Button) findViewById(R.id.open_color_picker_t6);
-        Button openEmailBtn = (Button) findViewById(R.id.open_dial_t6);
+
+        Button callBtn = (Button) findViewById(R.id.call_t6);
+        Button webBtn = (Button) findViewById(R.id.web_t6);
+        Button mapBtn = (Button) findViewById(R.id.map_t6);
 
         openCPBtn.setOnClickListener(this);
-        openEmailBtn.setOnClickListener(this);
+        callBtn.setOnClickListener(this);
+        webBtn.setOnClickListener(this);
+        mapBtn.setOnClickListener(this);
 
         registerForContextMenu(openCPBtn);
 
@@ -34,9 +40,7 @@ public class Task6Activity extends AppCompatActivity implements View.OnClickList
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         switch (v.getId()){
             case R.id.open_color_picker_t6:
-                menu.add(0, 1, 0, "Set blue theme");
-                menu.add(0, 2, 0, "Set grey theme");
-                menu.add(0, 3, 0, "Set yellow theme");
+                menu.add(0, 1, 0, "Set theme");
                 break;
         }
     }
@@ -45,38 +49,43 @@ public class Task6Activity extends AppCompatActivity implements View.OnClickList
     public boolean onContextItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case 1:
-                theme = "blue";
-                Toast.makeText(this, "Selected blue theme", Toast.LENGTH_SHORT).show();
-                break;
-            case 2:
-                theme = "grey";
-                Toast.makeText(this, "Selected grey theme", Toast.LENGTH_SHORT).show();
-                break;
-            case 3:
-                theme = "yellow";
-                Toast.makeText(this, "Selected yellow theme", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, Task6Result.class);
+                startActivityForResult(intent, 1);
                 break;
         }
         return super.onContextItemSelected(item);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (data == null) return;
+
+        theme = data.getStringExtra("theme");
+        Toast.makeText(this, "Theme is: "+theme, Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     public void onClick(View view) {
         Intent intent;
         switch (view.getId()){
             case R.id.open_color_picker_t6:
-//                if (theme != null){
-//                    intent = new Intent(this, Task3Activity.class);
-//                    intent.putExtra("theme", theme);
-//                    startActivity(intent);
-//                }
                 intent = new Intent("androidtasks.intent.action.colorpicker");
                 intent.putExtra("theme", theme);
                 startActivity(intent);
                 break;
-            case R.id.open_dial_t6:
+            case R.id.call_t6:
                 intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:0731343161"));
+                startActivity(intent);
+                break;
+            case R.id.web_t6:
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://oleman95.github.io/"));
+                startActivity(intent);
+                break;
+            case R.id.map_t6:
+                intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("geo:-0.45609946,-90.26607513"));
                 startActivity(intent);
                 break;
         }
