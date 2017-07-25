@@ -63,7 +63,9 @@
     <string name="del_t5">DEL</string>
 
     <!--Task 6-->
-    <string name="open_email_activity_t6">Make call!</string>
+    <string name="call_t6">Call</string>
+    <string name="web_t6">Web</string>
+    <string name="map_t6">Map</string>
     <string name="open_color_picker_t6">Open color-picker</string>
 
     <string name="rename_tasks_settings">Rename tasks</string>
@@ -80,6 +82,15 @@
     <string name="light_btn_t1">LIGTH</string>
     <string name="middle_btn_t1">MIDDLE</string>
     <string name="dark_btn_t1">DARK</string>
+    <string name="grey_t6">grey</string>
+    <string name="yellow_t6">yellow</string>
+    <string name="activity_label_theme">Theme</string>
+    <string name="dark_theme">Dark theme</string>
+    <string name="light_theme">Light theme</string>
+    <string name="font_size">Font size</string>
+    <string name="large">Large</string>
+    <string name="middle">Middle</string>
+    <string name="small">Small</string>
 
 
 </resources>

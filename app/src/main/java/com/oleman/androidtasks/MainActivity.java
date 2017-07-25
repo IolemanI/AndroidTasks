@@ -14,47 +14,50 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.oleman.androidtasks.Settings.ActivitySettings;
-import com.oleman.androidtasks.Settings.FileAdapter;
-import com.oleman.androidtasks.Settings.RenameTasksActivity;
+import com.oleman.androidtasks.Settings.SettingAdapter;
 import com.oleman.androidtasks.tasks.Task1Activity;
 import com.oleman.androidtasks.tasks.Task2Activity;
 import com.oleman.androidtasks.tasks.Task3Activity;
 import com.oleman.androidtasks.tasks.Task4Activity;
 import com.oleman.androidtasks.tasks.Task5Activity;
-import com.oleman.androidtasks.tasks.Task6Activity;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
+
+import static com.oleman.androidtasks.Settings.ActivitySettings.ANIMATION_SETTINGS;
+import static com.oleman.androidtasks.Settings.FontSettingsActivity.FONT_SIZE_SETTINGS;
+import static com.oleman.androidtasks.Settings.RenameTasksActivity.BTN_NAMES;
+import static com.oleman.androidtasks.Settings.SetThemeActivity.THEME_SETTINGS;
+import static com.oleman.androidtasks.Settings.SettingAdapter.SETTING_FILE_NAME;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final int LAYOUT = R.layout.activity_main;
     public static final String LOG_TAG = "myLogs";
-    private final int START_ANIMATION = 1;
 
+    private Menu menu;
+    private SettingAdapter settingAdapter;
+    private SettingAdapter settingAdapter1;
+    private SettingAdapter settingAdapter2;
+    private SettingAdapter adapterAnim;
+    public Button task1Btn;
+    public Button task2Btn;
+    public Button task3Btn;
+    public Button task4Btn;
+    public Button task5Btn;
+    public Button task6Btn;
 
-
-    private Menu menu;  //параметр выведен для управления чек-боксом в меню.
-    private Button task1Btn;
-    private Button task2Btn;
-    private Button task3Btn;
-    private Button task4Btn;
-    private Button task5Btn;
-    private Button task6Btn;
-
-    Animation anim1 = null;
-    Animation anim2 = null;
-    Animation anim3 = null;
-    Animation anim4 = null;
-    Animation anim5 = null;
-    Animation anim6 = null;
+    private Animation anim1 = null;
+    private Animation anim2 = null;
+    private Animation anim3 = null;
+    private Animation anim4 = null;
+    private Animation anim5 = null;
+    private Animation anim6 = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(LAYOUT);
 
-        Log.d(LOG_TAG, "Find the view-elements."); //запись логов
         task1Btn = (Button) findViewById(R.id.task1Btn);
         task2Btn = (Button) findViewById(R.id.task2Btn);
         task3Btn = (Button) findViewById(R.id.task3Btn);
@@ -76,13 +79,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         registerForContextMenu(task5Btn);
         registerForContextMenu(task6Btn);
 
+        settingAdapter = new SettingAdapter(BTN_NAMES, getSharedPreferences(SETTING_FILE_NAME, MODE_PRIVATE));
+        settingAdapter1 = new SettingAdapter(FONT_SIZE_SETTINGS, getSharedPreferences(SETTING_FILE_NAME, MODE_PRIVATE));
+        settingAdapter2 = new SettingAdapter(THEME_SETTINGS, getSharedPreferences(SETTING_FILE_NAME, MODE_PRIVATE));
+        adapterAnim = new SettingAdapter(ANIMATION_SETTINGS, getSharedPreferences(SETTING_FILE_NAME, MODE_PRIVATE));
+
         renameButtons();
-        startAnimation();
+
+        if (adapterAnim.loadText().equals("ON")) startAnimation();
 
     }
 
     @Override
     protected void onResume() {
+        Toast.makeText(this, "Font is: "+settingAdapter1.loadText(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Theme is: "+settingAdapter2.loadText(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Animation is: "+adapterAnim.loadText(), Toast.LENGTH_SHORT).show();
+
         renameButtons();
         super.onResume();
     }
@@ -142,7 +155,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_activity_menu, menu);
 
-        menu.add(1,START_ANIMATION,3,"Start animation");  //программно добавляэм пункт меню.
         this.menu = menu;
         return true;
     }
@@ -155,13 +167,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(MainActivity.this, "In developing", Toast.LENGTH_LONG).show();
                 break;
             case R.id.action_setting:
-//                Toast.makeText(MainActivity.this, "In developing", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(this, ActivitySettings.class);
                 startActivity(intent);
                 break;
-            case START_ANIMATION:
-                startAnimation();
-                break;
+//            case START_ANIMATION:
+//                startAnimation();
+//                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -222,10 +233,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void renameButtons(){
-        FileAdapter fileAdapter = new FileAdapter(this);
-        ArrayList<String> nameList = fileAdapter.getNameList();
+        ArrayList<String> nameList = settingAdapter.getArrayTexts();
 
-        if (fileAdapter.isAvailable()){
+        if (nameList.size() > 0){
             for (int i=0; i<nameList.size(); i++){
                 switch (i){
                     case 0:

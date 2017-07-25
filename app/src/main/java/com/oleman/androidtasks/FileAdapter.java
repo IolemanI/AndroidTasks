@@ -1,4 +1,4 @@
-package com.oleman.androidtasks.Settings;
+package com.oleman.androidtasks;
 
 
 import android.content.Context;

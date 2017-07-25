@@ -21,16 +21,35 @@
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/open_dial_t6"
-        android:layout_width="match_parent"
+        android:id="@+id/call_t6"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:background="@drawable/button_dark_selector_t5"
+        android:text="@string/call_t6"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_alignTop="@+id/map_t6"
+        android:layout_alignEnd="@+id/open_color_picker_t6" />
+
+    <Button
+        android:id="@+id/web_t6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/open_color_picker_t6"
         android:layout_below="@+id/open_color_picker_t6"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/button_dark_selector_t5"
-        android:text="@string/open_email_activity_t6"
+        android:text="@string/web_t6"
         android:textColor="@color/white"
         android:textSize="18sp" />
+    <Button
+        android:id="@+id/map_t6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_dark_selector_t5"
+        android:text="@string/map_t6"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_alignTop="@+id/web_t6"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

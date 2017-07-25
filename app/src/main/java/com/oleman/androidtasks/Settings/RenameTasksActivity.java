@@ -1,25 +1,27 @@
 package com.oleman.androidtasks.Settings;
 
 import android.content.Intent;
-import android.support.design.widget.Snackbar;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.oleman.androidtasks.MainActivity;
+import com.oleman.androidtasks.FileAdapter;
 import com.oleman.androidtasks.R;
 
 import java.util.ArrayList;
 
-import static com.oleman.androidtasks.MainActivity.LOG_TAG;
+import static com.oleman.androidtasks.Settings.SettingAdapter.SETTING_FILE_NAME;
 
 public class RenameTasksActivity extends AppCompatActivity implements View.OnClickListener {
 
-    FileAdapter fileAdapter;
+    public final static String BTN_NAMES = "button_names";
+
+    private FileAdapter fileAdapter;
+    private SharedPreferences sPreferences;
+    private SettingAdapter settingAdapter;
 
     private EditText task1Txt;
     private EditText task2Txt;
@@ -27,6 +29,10 @@ public class RenameTasksActivity extends AppCompatActivity implements View.OnCli
     private EditText task4Txt;
     private EditText task5Txt;
     private EditText task6Txt;
+
+
+    public RenameTasksActivity() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,39 +52,49 @@ public class RenameTasksActivity extends AppCompatActivity implements View.OnCli
         saveBtn.setOnClickListener(this);
         readBtn.setOnClickListener(this);
 
-        fileAdapter = new FileAdapter(getApplicationContext());
+
+        settingAdapter = new SettingAdapter(BTN_NAMES, getSharedPreferences(SETTING_FILE_NAME, MODE_PRIVATE));
 
         getNames();
     }
 
     @Override
     public void onClick(View view) {
+        Intent intent = new Intent();
         switch (view.getId()){
             case R.id.btnSave_rename:
-                fileAdapter.writeFile(task1Txt.getText().toString()+ ", "
+//                fileAdapter.writeFile(task1Txt.getText().toString()+ ", "
+//                        +task2Txt.getText().toString()+ ", "
+//                        +task3Txt.getText().toString()+ ", "
+//                        +task4Txt.getText().toString()+ ", "
+//                        +task5Txt.getText().toString()+ ", "
+//                        +task6Txt.getText().toString()
+//                );
+                settingAdapter.saveText(task1Txt.getText().toString()+ ", "
                         +task2Txt.getText().toString()+ ", "
                         +task3Txt.getText().toString()+ ", "
                         +task4Txt.getText().toString()+ ", "
                         +task5Txt.getText().toString()+ ", "
-                        +task6Txt.getText().toString()
-                );
-                finish();
+                        +task6Txt.getText().toString());
 
                 break;
-            case R.id.readFile_rename:
-                if (fileAdapter.isAvailable()) {
-                    Snackbar.make(view, "File is available!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                } else Snackbar.make(view, "File is not available!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-
-                break;
+//            case R.id.readFile_rename:
+//                if (fileAdapter.isAvailable()) {
+//                    Snackbar.make(view, "File is available!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+//                } else Snackbar.make(view, "File is not available!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+//
+//                break
         }
+        setResult(RESULT_OK, intent);
+        finish();
+
+
     }
 
     private void getNames(){
-        FileAdapter fileAdapter = new FileAdapter(this);
-        ArrayList<String> nameList = fileAdapter.getNameList();
+        ArrayList<String> nameList = settingAdapter.getArrayTexts();
 
-        if (fileAdapter.isAvailable()){
+        if (nameList.size() > 0){
             for (int i=0; i<nameList.size(); i++){
                 switch (i){
                     case 0:
