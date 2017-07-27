@@ -1,4 +1,4 @@
-package com.oleman.androidtasks;
+package com.oleman.androidtasks.adapters;
 
 
 import android.content.Context;

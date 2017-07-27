@@ -120,7 +120,17 @@
             android:name=".Settings.FontSettingsActivity"
             android:label="@string/font_size"
             android:theme="@style/Theme.AppCompat.Dialog" />
-        <activity android:name=".tasks.Task7Activity"></activity>
+        <activity android:name=".tasks.Task7Activity" />
+        <activity android:name=".tasks.Task7AddCat"
+            android:label="@string/add_cat_t7"
+            android:theme="@style/Theme.AppCompat.Dialog">
+            <intent-filter>
+
+            <action android:name="androidtasks.intent.action.task7_add_cat" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+        </activity>
     </application>
 
 </manifest>

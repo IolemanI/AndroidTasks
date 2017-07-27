@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.oleman.androidtasks.FileAdapter;
+import com.oleman.androidtasks.adapters.FileAdapter;
 import com.oleman.androidtasks.R;
 
 import java.util.ArrayList;

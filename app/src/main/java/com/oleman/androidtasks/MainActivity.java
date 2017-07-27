@@ -21,6 +21,7 @@ import com.oleman.androidtasks.tasks.Task3Activity;
 import com.oleman.androidtasks.tasks.Task4Activity;
 import com.oleman.androidtasks.tasks.Task5Activity;
 import com.oleman.androidtasks.tasks.Task7Activity;
+import com.oleman.androidtasks.tasks.Task7AddCat;
 
 import java.util.ArrayList;
 
@@ -232,7 +233,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.task7Btn:
-                intent = new Intent(this, Task7Activity.class);
+                intent = new Intent(this, Task7AddCat.class);
                 startActivity(intent);
                 Log.d(LOG_TAG, "Open Task #7.");
 
