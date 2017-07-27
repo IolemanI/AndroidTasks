@@ -20,6 +20,7 @@ import com.oleman.androidtasks.tasks.Task2Activity;
 import com.oleman.androidtasks.tasks.Task3Activity;
 import com.oleman.androidtasks.tasks.Task4Activity;
 import com.oleman.androidtasks.tasks.Task5Activity;
+import com.oleman.androidtasks.tasks.Task7Activity;
 
 import java.util.ArrayList;
 
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public Button task4Btn;
     public Button task5Btn;
     public Button task6Btn;
+    public Button task7Btn;
 
     private Animation anim1 = null;
     private Animation anim2 = null;
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Animation anim4 = null;
     private Animation anim5 = null;
     private Animation anim6 = null;
+    private Animation anim7 = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         task4Btn = (Button) findViewById(R.id.task4Btn);
         task5Btn = (Button) findViewById(R.id.task5Btn);
         task6Btn = (Button) findViewById(R.id.task6Btn);
+        task7Btn = (Button) findViewById(R.id.task7Btn);
 
         task1Btn.setOnClickListener(this);
         task2Btn.setOnClickListener(this);
@@ -71,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         task4Btn.setOnClickListener(this);
         task5Btn.setOnClickListener(this);
         task6Btn.setOnClickListener(this);
+        task7Btn.setOnClickListener(this);
 
         registerForContextMenu(task1Btn); //регистрация контекстного меню для кнопок
         registerForContextMenu(task2Btn);
@@ -78,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         registerForContextMenu(task4Btn);
         registerForContextMenu(task5Btn);
         registerForContextMenu(task6Btn);
+        registerForContextMenu(task7Btn);
 
         settingAdapter = new SettingAdapter(BTN_NAMES, getSharedPreferences(SETTING_FILE_NAME, MODE_PRIVATE));
         settingAdapter1 = new SettingAdapter(FONT_SIZE_SETTINGS, getSharedPreferences(SETTING_FILE_NAME, MODE_PRIVATE));
@@ -92,9 +98,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onResume() {
-        Toast.makeText(this, "Font is: "+settingAdapter1.loadText(), Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "Theme is: "+settingAdapter2.loadText(), Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "Animation is: "+adapterAnim.loadText(), Toast.LENGTH_SHORT).show();
+        String testStr = "F: "+settingAdapter1.loadText()+ "; "
+                +"T: "+settingAdapter2.loadText()+ "; "
+                +"A: "+adapterAnim.loadText();
+        Toast.makeText(this, testStr, Toast.LENGTH_LONG).show();
+
 
         renameButtons();
         super.onResume();
@@ -122,30 +130,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.task6Btn:
                 menu.add(0, 6, 0, "Info");
                 break;
+            case R.id.task7Btn:
+                menu.add(0, 7, 0, "Info");
+                break;
         }
     }
 
     @Override        // обработка нажатия на контекстное меню
-    public boolean onContextItemSelected(MenuItem item) {
+    public boolean onContextItemSelected(MenuItem item){
 
         switch (item.getItemId()){   //показывает, что за TASK при нажатии на "Info"
             case 1:
-                Toast.makeText(MainActivity.this, "Color picker.", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Color picker.", Toast.LENGTH_SHORT).show();
                 break;
             case 2:
-                Toast.makeText(MainActivity.this, "Adding the buttons in real time.", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Adding the buttons in real time.", Toast.LENGTH_SHORT).show();
                 break;
             case 3:
-                Toast.makeText(MainActivity.this, "Changing the parameters of view-elements in real time.", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Changing the parameters of view-elements in real time.", Toast.LENGTH_SHORT).show();
                 break;
             case 4:
-                Toast.makeText(MainActivity.this, "Firebase chat.", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Firebase chat.", Toast.LENGTH_SHORT).show();
                 break;
             case 5:
-                Toast.makeText(MainActivity.this, "Calculator.", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Calculator.", Toast.LENGTH_SHORT).show();
                 break;
             case 6:
-                Toast.makeText(MainActivity.this, "This activity will be opened by using intent-filter.", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Here is some intent experiments.", Toast.LENGTH_SHORT).show();
+                break;
+            case 7:
+                Toast.makeText(MainActivity.this, "Work with DataBases.", Toast.LENGTH_SHORT).show();
                 break;
         }
         return super.onContextItemSelected(item);
@@ -217,6 +231,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.d(LOG_TAG, "Open Task #6.");
 
                 break;
+            case R.id.task7Btn:
+                intent = new Intent(this, Task7Activity.class);
+                startActivity(intent);
+                Log.d(LOG_TAG, "Open Task #7.");
+
+                break;
 //            case R.id.task7Btn:
 //                Log.d(LOG_TAG, "Task #4 clicked.");
 //
@@ -256,6 +276,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     case 5:
                         task6Btn.setText(nameList.get(i));
                         break;
+                    case 6:
+                        task7Btn.setText(nameList.get(i));
+                        break;
                 }
             }
         }else {
@@ -265,6 +288,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             task4Btn.setText(R.string.task_4);
             task5Btn.setText(R.string.task_5);
             task6Btn.setText(R.string.task_6);
+            task7Btn.setText(R.string.task_7);
         }
     }
 
@@ -275,6 +299,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         anim4 = AnimationUtils.loadAnimation(this, R.anim.task_btns_anim);
         anim5 = AnimationUtils.loadAnimation(this, R.anim.task_btns_anim);
         anim6 = AnimationUtils.loadAnimation(this, R.anim.task_btns_anim);
+        anim7 = AnimationUtils.loadAnimation(this, R.anim.task_btns_anim);
 
         task1Btn.startAnimation(anim1);
         anim2.setStartOffset(300);
@@ -287,6 +312,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         task5Btn.startAnimation(anim5);
         anim6.setStartOffset(1500);
         task6Btn.startAnimation(anim6);
+        anim7.setStartOffset(2000);
+        task7Btn.startAnimation(anim7);
 
     }
 }

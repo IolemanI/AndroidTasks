@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="@string/task_1_renameBtns"
+                android:hint="@string/task_1"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:ems="10"
-                android:hint="@string/task_2_renameBtns"
+                android:hint="@string/task_2"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:ems="10"
-                android:hint="@string/task_3_renameBtns"
+                android:hint="@string/task_3"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:ems="10"
-                android:hint="@string/task_4_renameBtns"
+                android:hint="@string/task_4"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -62,17 +62,26 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:ems="10"
-                android:hint="@string/task_5_renameBtns"
+                android:hint="@string/task_5"
                 android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/nameTask6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="@string/task_6"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/nameTask7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
-                android:hint="@string/task_6_renameBtns"
+                android:hint="@string/task_7"
                 android:inputType="textPersonName" />
 
         </LinearLayout>

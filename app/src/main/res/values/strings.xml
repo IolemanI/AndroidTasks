@@ -6,6 +6,7 @@
     <string name="task_4">Task 4</string>
     <string name="task_5">Task 5</string>
     <string name="task_6">Task 6</string>
+    <string name="task_7">Task 7</string>
     <string name="action_about">About</string>
     <string name="action_setting">Setting</string>
     <string name="action_display_about">Display About</string>
@@ -73,12 +74,6 @@
 
     <string name="readfile_renameBtns">ReadFile</string>
     <string name="save_renameBtns">Save</string>
-    <string name="task_1_renameBtns">Task 1</string>
-    <string name="task_2_renameBtns">Task 2</string>
-    <string name="task_3_renameBtns">Task 3</string>
-    <string name="task_4_renameBtns">Task 4</string>
-    <string name="task_5_renameBtns">Task 5</string>
-    <string name="task_6_renameBtns">Task 6</string>
     <string name="light_btn_t1">LIGTH</string>
     <string name="middle_btn_t1">MIDDLE</string>
     <string name="dark_btn_t1">DARK</string>

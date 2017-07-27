@@ -2,6 +2,7 @@ package com.oleman.androidtasks.Settings;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +30,7 @@ public class RenameTasksActivity extends AppCompatActivity implements View.OnCli
     private EditText task4Txt;
     private EditText task5Txt;
     private EditText task6Txt;
+    private EditText task7Txt;
 
 
     public RenameTasksActivity() {
@@ -45,6 +47,7 @@ public class RenameTasksActivity extends AppCompatActivity implements View.OnCli
         task4Txt = (EditText) findViewById(R.id.nameTask4);
         task5Txt = (EditText) findViewById(R.id.nameTask5);
         task6Txt = (EditText) findViewById(R.id.nameTask6);
+        task7Txt = (EditText) findViewById(R.id.nameTask7);
 
         Button saveBtn = (Button) findViewById(R.id.btnSave_rename);
         Button readBtn = (Button) findViewById(R.id.readFile_rename);
@@ -63,27 +66,23 @@ public class RenameTasksActivity extends AppCompatActivity implements View.OnCli
         Intent intent = new Intent();
         switch (view.getId()){
             case R.id.btnSave_rename:
-//                fileAdapter.writeFile(task1Txt.getText().toString()+ ", "
-//                        +task2Txt.getText().toString()+ ", "
-//                        +task3Txt.getText().toString()+ ", "
-//                        +task4Txt.getText().toString()+ ", "
-//                        +task5Txt.getText().toString()+ ", "
-//                        +task6Txt.getText().toString()
-//                );
+
                 settingAdapter.saveText(task1Txt.getText().toString()+ ", "
                         +task2Txt.getText().toString()+ ", "
                         +task3Txt.getText().toString()+ ", "
                         +task4Txt.getText().toString()+ ", "
                         +task5Txt.getText().toString()+ ", "
-                        +task6Txt.getText().toString());
+                        +task6Txt.getText().toString()+ ", "
+                        +task7Txt.getText().toString()
+                );
 
                 break;
-//            case R.id.readFile_rename:
-//                if (fileAdapter.isAvailable()) {
-//                    Snackbar.make(view, "File is available!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-//                } else Snackbar.make(view, "File is not available!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-//
-//                break
+            case R.id.readFile_rename:
+                if (fileAdapter.isAvailable()) {
+                    Snackbar.make(view, "File is available!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                } else Snackbar.make(view, "File is not available!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+
+                break;
         }
         setResult(RESULT_OK, intent);
         finish();
@@ -115,6 +114,9 @@ public class RenameTasksActivity extends AppCompatActivity implements View.OnCli
                     case 5:
                         task6Txt.setText(nameList.get(i));
                         break;
+                    case 6:
+                        task7Txt.setText(nameList.get(i));
+                        break;
                 }
             }
         }else {
@@ -124,6 +126,7 @@ public class RenameTasksActivity extends AppCompatActivity implements View.OnCli
             task4Txt.setText(R.string.task_4);
             task5Txt.setText(R.string.task_5);
             task6Txt.setText(R.string.task_6);
+            task7Txt.setText(R.string.task_7);
         }
     }
 
