@@ -7,7 +7,6 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class WebActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -17,7 +16,7 @@ public class WebActivity extends AppCompatActivity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_web);
+        setContentView(R.layout.task6_web);
 
         webView = (WebView) findViewById(R.id.webView_t6);
         Button search = (Button) findViewById(R.id.goBtn_t6);

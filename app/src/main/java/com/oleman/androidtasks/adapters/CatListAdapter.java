@@ -28,7 +28,7 @@ public class CatListAdapter extends RecyclerView.Adapter<CatListAdapter.CatViewH
 
     @Override
     public CatViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cat_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.task7_cat_item, parent, false);
 
         return new CatViewHolder(view);
     }
@@ -57,12 +57,12 @@ public class CatListAdapter extends RecyclerView.Adapter<CatListAdapter.CatViewH
         public CatViewHolder(View itemView) {
             super(itemView);
 
-            cardView = (CardView) itemView.findViewById(R.id.cat_card);
+            cardView = itemView.findViewById(R.id.cat_card);
 
-            name = (TextView) itemView.findViewById(R.id.nameCard_t7);
-            age = (TextView) itemView.findViewById(R.id.ageCard_t7);
-            color = (TextView) itemView.findViewById(R.id.colorCard_t7);
-            career = (TextView) itemView.findViewById(R.id.careerCard_t7);
+            name = itemView.findViewById(R.id.nameCard_t7);
+            age = itemView.findViewById(R.id.ageCard_t7);
+            color = itemView.findViewById(R.id.colorCard_t7);
+            career = itemView.findViewById(R.id.careerCard_t7);
 
         }
     }

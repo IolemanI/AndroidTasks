@@ -35,7 +35,7 @@ public class Task4Activity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task4);
+        setContentView(R.layout.task4);
 
         activity = (RelativeLayout) findViewById(R.id.activity_main);
         sendBtn = (FloatingActionButton) findViewById(R.id.button_send_task4);
@@ -57,7 +57,7 @@ public class Task4Activity extends AppCompatActivity implements View.OnClickList
      */
     private void displayChat() {
         ListView listMessage = (ListView) findViewById(R.id.listView_task4);
-        adapter = new FirebaseListAdapter<Message>(this, Message.class, R.layout.item_task4, FirebaseDatabase.getInstance().getReference()) {
+        adapter = new FirebaseListAdapter<Message>(this, Message.class, R.layout.task4_item, FirebaseDatabase.getInstance().getReference()) {
             @Override
             protected void populateView(View v, Message model, int position) {
 

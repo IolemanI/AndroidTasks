@@ -19,7 +19,7 @@ public class Task6Activity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task6);
+        setContentView(R.layout.task6);
 
         Button openCPBtn = (Button) findViewById(R.id.open_color_picker_t6);
 

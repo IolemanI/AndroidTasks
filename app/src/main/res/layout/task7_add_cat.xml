@@ -15,11 +15,20 @@
         android:id="@+id/linearLayout">
 
         <EditText
-            android:id="@+id/name_t7"
+            android:id="@+id/id_t7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Name"
+            android:hint="@string/id_t7"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/name_t7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="@string/name_t7"
             android:inputType="textPersonName" />
 
         <Spinner
@@ -34,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:hint="Age"
+            android:hint="@string/age_t7"
             android:inputType="number" />
 
         <EditText
@@ -43,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:hint="Career"
+            android:hint="@string/career_t7"
             android:inputType="textPersonName" />
 
         <TextView
@@ -51,32 +60,81 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:paddingEnd="5dp"
             android:paddingStart="5dp"
-            android:text="Photo" />
+            android:text="@string/photo_t7" />
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/save_t7"
-        android:layout_width="wrap_content"
+    <HorizontalScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save"
+        android:layout_alignStart="@+id/linearLayout"
         android:layout_below="@+id/linearLayout"
-        android:layout_alignStart="@+id/linearLayout" />
+        android:layout_marginTop="16dp">
 
-    <Button
-        android:id="@+id/clear_t7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Clear"
-        android:layout_below="@+id/linearLayout"
-        android:layout_centerHorizontal="true" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/read_t7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Read"
-        android:layout_below="@+id/linearLayout"
-        android:layout_alignEnd="@+id/linearLayout" />
+            <Button
+                android:id="@+id/save_t7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_result_selector_t5"
+                android:text="@string/save_t7"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/read_t7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_result_selector_t5"
+                android:text="@string/read_t7"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/clear_t7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_result_selector_t5"
+                android:text="@string/clear_t7"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/update_t7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_result_selector_t5"
+                android:text="@string/update_t7"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+
+            <Button
+                android:id="@+id/delete_t7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_result_selector_t5"
+                android:text="@string/delete_t7"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
 </RelativeLayout>

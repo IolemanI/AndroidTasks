@@ -20,7 +20,6 @@ import com.oleman.androidtasks.tasks.Task2Activity;
 import com.oleman.androidtasks.tasks.Task3Activity;
 import com.oleman.androidtasks.tasks.Task4Activity;
 import com.oleman.androidtasks.tasks.Task5Activity;
-import com.oleman.androidtasks.tasks.Task7Activity;
 import com.oleman.androidtasks.tasks.Task7AddCat;
 
 import java.util.ArrayList;
@@ -33,7 +32,7 @@ import static com.oleman.androidtasks.Settings.SettingAdapter.SETTING_FILE_NAME;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final int LAYOUT = R.layout.activity_main;
+    private static final int LAYOUT = R.layout.main;
     public static final String LOG_TAG = "myLogs";
 
     private Menu menu;

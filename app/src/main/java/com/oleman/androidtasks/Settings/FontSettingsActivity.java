@@ -23,7 +23,7 @@ public class FontSettingsActivity extends AppCompatActivity implements View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_font_settings);
+        setContentView(R.layout.settings_font_settings);
 
         smallBtn = (Button) findViewById(R.id.small_font_settings);
         middleBtn = (Button) findViewById(R.id.middle_font_settings);

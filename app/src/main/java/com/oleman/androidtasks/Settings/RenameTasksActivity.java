@@ -39,7 +39,7 @@ public class RenameTasksActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rename_tasks);
+        setContentView(R.layout.settings_rename_tasks);
 
         task1Txt = (EditText) findViewById(R.id.nameTask1);
         task2Txt = (EditText) findViewById(R.id.nameTask2);

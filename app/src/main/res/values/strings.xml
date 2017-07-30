@@ -88,6 +88,25 @@
     <string name="small">Small</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="add_cat_t7">Add the cat</string>
+    <string name="photo_t7">Photo</string>
+    <string name="age_t7">Age</string>
+    <string name="career_t7">Career</string>
+    <string name="clear_t7">Clear</string>
+    <string name="update_t7">Update</string>
+    <string name="delete_t7">Delete</string>
+    <string name="name_t7">Name</string>
+    <string name="id_t7">ID</string>
+    <string name="read_t7">Read</string>
+    <string name="save_t7">Save</string>
+    <string name="settings_app_theme">Set app theme</string>
+    <string name="settings_font_size">Font size</string>
+    <string name="settings_animation">Animation</string>
+    <string name="cat_photo_t7">Cat photo</string>
+    <string name="name_item_t7">Name</string>
+    <string name="age_item_t7">Age</string>
+    <string name="color_item_t7">Color</string>
+    <string name="career_item_t7">Career</string>
+    <string name="input_t4">Input</string>
 
 
 </resources>

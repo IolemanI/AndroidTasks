@@ -122,8 +122,7 @@
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity android:name=".tasks.Task7Activity" />
         <activity android:name=".tasks.Task7AddCat"
-            android:label="@string/add_cat_t7"
-            android:theme="@style/Theme.AppCompat.Dialog">
+            android:label="@string/add_cat_t7">
             <intent-filter>
 
             <action android:name="androidtasks.intent.action.task7_add_cat" />

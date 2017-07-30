@@ -1,8 +1,5 @@
 package com.oleman.androidtasks.tasks;
 
-import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,7 +9,6 @@ import android.view.View;
 import com.oleman.androidtasks.R;
 import com.oleman.androidtasks.adapters.CatListAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.oleman.androidtasks.tasks.Task7AddCat.ageList;
@@ -31,7 +27,7 @@ public class Task7Activity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task7);
+        setContentView(R.layout.task7);
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_t7);
 //        fab.setOnClickListener(new View.OnClickListener() {

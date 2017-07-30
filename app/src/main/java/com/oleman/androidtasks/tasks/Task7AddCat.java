@@ -41,16 +41,11 @@ public class Task7AddCat extends AppCompatActivity implements View.OnClickListen
     public String COLOR;
     public String CAREER;
 
-    public static ArrayList<String> nameList;
-    public static ArrayList<String> ageList;
-    public static ArrayList<String> colorList;
-    public static ArrayList<String> careerList;
+    public static ArrayList<String> nameList, ageList, colorList, careerList;
 
     private String colorTxt;
 
-    private EditText nameText;
-    private EditText ageText;
-    private EditText careerText;
+    private EditText nameText, ageText, careerText, idText;
 
     private DBHelper dbHelper;
     SQLiteDatabase db;
@@ -63,15 +58,20 @@ public class Task7AddCat extends AppCompatActivity implements View.OnClickListen
         nameText = (EditText) findViewById(R.id.name_t7);
         ageText = (EditText) findViewById(R.id.age_t7);
         careerText = (EditText) findViewById(R.id.career_t7);
+        idText = (EditText) findViewById(R.id.id_t7);
         Spinner colorSpin = (Spinner) findViewById(R.id.color_t7);
 
         Button saveBtn = (Button) findViewById(R.id.save_t7);
         Button readBtn = (Button) findViewById(R.id.read_t7);
         Button clearBtn = (Button) findViewById(R.id.clear_t7);
+        Button updateBtn = (Button) findViewById(R.id.update_t7);
+        Button deleteBtn = (Button) findViewById(R.id.delete_t7);
 
         saveBtn.setOnClickListener(this);
         readBtn.setOnClickListener(this);
         clearBtn.setOnClickListener(this);
+        updateBtn.setOnClickListener(this);
+        deleteBtn.setOnClickListener(this);
 
         ArrayAdapter<String> spinAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, COLORS);
         spinAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -107,6 +107,11 @@ public class Task7AddCat extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
+        String id = idText.getText().toString();
+        String name = nameText.getText().toString();
+        String age = ageText.getText().toString();
+        String career = careerText.getText().toString();
+
         //с помощью метода getWritableDatabase подключаемся к БД и получаем объект SQLiteDatabase.
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -116,10 +121,10 @@ public class Task7AddCat extends AppCompatActivity implements View.OnClickListen
 
         switch (view.getId()){
             case R.id.save_t7:
-                contentValues.put(DBHelper.KEY_NAME, nameText.getText().toString());
-                contentValues.put(DBHelper.KEY_AGE, ageText.getText().toString());
+                contentValues.put(DBHelper.KEY_NAME, name);
+                contentValues.put(DBHelper.KEY_AGE, age);
                 contentValues.put(DBHelper.KEY_COLOR, colorTxt);
-                contentValues.put(DBHelper.KEY_CAREER, careerText.getText().toString());
+                contentValues.put(DBHelper.KEY_CAREER, career);
 
                 long rowID = db.insert(DBHelper.TABLE_CATS, null, contentValues);
                 //Вызываем метод insert – передаем ему имя таблицы и объект contentValues
@@ -127,9 +132,7 @@ public class Task7AddCat extends AppCompatActivity implements View.OnClickListen
                 Log.d(LOG_TAG, "row inserted, ID = " + rowID);
                 Toast.makeText(this, "Cat has been saved.", Toast.LENGTH_SHORT).show();
 
-                nameText.setText("");
-                ageText.setText("");
-                careerText.setText("");
+                clearTextView();
                 break;
             case R.id.read_t7:
                 Cursor cursor = db.query(DBHelper.TABLE_CATS, null, null, null, null, null, null);
@@ -153,28 +156,54 @@ public class Task7AddCat extends AppCompatActivity implements View.OnClickListen
                                 +", CAREER = "+cursor.getString(careerIndex)
                         );
 
-
-
                         nameList.add("Name: " +cursor.getString(nameIndex));
                         ageList.add("Age: " +cursor.getString(ageIndex));
                         colorList.add("Color: " +cursor.getString(colorIndex));
                         careerList.add("Career: " +cursor.getString(careerIndex));
 
-
                     }while (cursor.moveToNext());
-
-
 
                 }else
                     Log.d(LOG_TAG, "0 rows");
 
                 cursor.close();
-                printArrays();
                 Intent intent = new Intent(this, Task7Activity.class);
                 startActivity(intent);
                 break;
             case R.id.clear_t7:
                 db.delete(DBHelper.TABLE_CATS, null, null);
+                Toast.makeText(this, "Database is empty.", Toast.LENGTH_SHORT).show();
+
+                break;
+            case R.id.update_t7:
+                if (id.equalsIgnoreCase("")) break;
+
+                if (!name.equalsIgnoreCase(""))
+                    contentValues.put(DBHelper.KEY_NAME, name);
+
+                if (!age.equalsIgnoreCase(""))
+                    contentValues.put(DBHelper.KEY_AGE, age);
+
+                if (!career.equalsIgnoreCase(""))
+                    contentValues.put(DBHelper.KEY_CAREER, career);
+
+                contentValues.put(DBHelper.KEY_COLOR, colorTxt);
+                int updCount = db.update(DBHelper.TABLE_CATS, contentValues, DBHelper.KEY_ID+"= ?", new String[] {id}); //вместо знака ? подставляется массив строк, где указан id
+
+                Log.d(LOG_TAG, "updated rows count = "+updCount);
+                Toast.makeText(this, "Row has been updated.", Toast.LENGTH_SHORT).show();
+
+                clearTextView();
+                break;
+            case R.id.delete_t7:
+                if (id.equalsIgnoreCase("")) break;
+                int delCount = db.delete(DBHelper.TABLE_CATS, DBHelper.KEY_ID+"= "+ id, null);
+                //для удаления поля по имени
+//                int delCount = db.delete(DBHelper.TABLE_CATS, DBHelper.KEY_NAME+" = ?", new String[]{name});
+
+                Log.d(LOG_TAG, "deleted rows count = "+delCount);
+                Toast.makeText(this, "Row has been deleted.", Toast.LENGTH_SHORT).show();
+                clearTextView();
                 break;
         }
         dbHelper.close();
@@ -195,11 +224,15 @@ public class Task7AddCat extends AppCompatActivity implements View.OnClickListen
         }
     }
 
+    private void clearTextView(){
+        nameText.setText("");
+        idText.setText("");
+        ageText.setText("");
+        careerText.setText("");
+    }
+
 
     public void putInArrays(String name, String age, String color, String career){
-
-
-
 
     }
 

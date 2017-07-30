@@ -26,7 +26,7 @@ public class Task2Activity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task2);
+        setContentView(R.layout.task2);
 
         createBtn = (Button) findViewById(R.id.createBtn);
         clearBtn = (Button) findViewById(R.id.clearBtn);

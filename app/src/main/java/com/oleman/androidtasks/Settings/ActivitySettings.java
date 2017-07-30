@@ -27,7 +27,7 @@ public class ActivitySettings extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.settings);
 
         renameBtn = (Button) findViewById(R.id.renameTasks_settings);
         themeBtn = (Button) findViewById(R.id.theme_settings);

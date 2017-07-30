@@ -22,7 +22,7 @@ public class Task1Activity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task1);
+        setContentView(R.layout.task1);
 
         text = (TextView) findViewById(R.id.textTask1);
         layout = (LinearLayout) findViewById(R.id.task1_layout);

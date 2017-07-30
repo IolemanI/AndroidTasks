@@ -6,6 +6,6 @@
     tools:context="com.oleman.androidtasks.MainActivity"
     android:id="@+id/main">
 
-    <include layout="@layout/content_main" />
+    <include layout="@layout/main_content" />
 
 </android.support.constraint.ConstraintLayout>

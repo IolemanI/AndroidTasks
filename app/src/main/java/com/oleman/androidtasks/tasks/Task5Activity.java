@@ -45,7 +45,7 @@ public class Task5Activity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task5);
+        setContentView(R.layout.task5);
 
         btn1 = (Button) findViewById(R.id.btn1_t5);
         btn2 = (Button) findViewById(R.id.btn2_t5);

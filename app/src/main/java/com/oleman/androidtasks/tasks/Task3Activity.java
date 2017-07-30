@@ -1,7 +1,6 @@
 package com.oleman.androidtasks.tasks;
 
 import android.content.Intent;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -25,7 +24,7 @@ public class Task3Activity extends AppCompatActivity implements SeekBar.OnSeekBa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task3);
+        setContentView(R.layout.task3);
 
         green = (Button) findViewById(R.id.buttonGreen_t3);
         red = (Button) findViewById(R.id.buttonRed_t3);

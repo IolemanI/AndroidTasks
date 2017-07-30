@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -48,7 +47,7 @@
         android:fontFamily="sans-serif"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:text="Set app theme"
+        android:text="@string/settings_app_theme"
         android:textAlignment="textStart"
         android:textAllCaps="false"
         android:textColor="@color/common_google_signin_btn_text_light_focused"
@@ -65,7 +64,7 @@
         android:fontFamily="sans-serif"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:text="Font size"
+        android:text="@string/settings_font_size"
         android:textAlignment="textStart"
         android:textAllCaps="false"
         android:textColor="@color/common_google_signin_btn_text_light_focused"
@@ -81,7 +80,7 @@
         android:fontFamily="sans-serif"
         android:padding="10dp"
         android:paddingStart="16dp"
-        android:text="Animation"
+        android:text="@string/settings_animation"
         android:textAlignment="textStart"
         android:textColor="@color/common_google_signin_btn_text_light_focused"
         android:textSize="18sp"
@@ -95,8 +94,6 @@
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/font_settings"
         android:paddingEnd="16dp"
-        android:paddingStart="8dp"
-        android:textOff="Off"
-        android:textOn="On" />
+        android:paddingStart="8dp"/>
 
 </RelativeLayout>

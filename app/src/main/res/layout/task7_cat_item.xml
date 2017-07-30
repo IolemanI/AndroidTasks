@@ -30,7 +30,8 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginEnd="8dp"
-                app:srcCompat="@drawable/ic_person" />
+                app:srcCompat="@drawable/ic_person"
+                android:contentDescription="@string/cat_photo_t7" />
 
             <TextView
                 android:id="@+id/nameCard_t7"
@@ -40,7 +41,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/imageCard_t7"
                 android:padding="8dp"
-                android:text="Name"
+                android:text="@string/name_item_t7"
                 android:textColor="@color/common_google_signin_btn_text_light_focused"
                 android:textSize="14sp" />
 
@@ -52,7 +53,7 @@
                 android:layout_below="@+id/nameCard_t7"
                 android:layout_toEndOf="@+id/imageCard_t7"
                 android:padding="8dp"
-                android:text="Age"
+                android:text="@string/age_item_t7"
                 android:textSize="14sp" />
 
             <TextView
@@ -63,7 +64,7 @@
                 android:layout_below="@+id/ageCard_t7"
                 android:layout_toEndOf="@+id/imageCard_t7"
                 android:padding="8dp"
-                android:text="Color"
+                android:text="@string/color_item_t7"
                 android:textSize="14sp" />
 
             <TextView
@@ -74,7 +75,7 @@
                 android:layout_below="@+id/colorCard_t7"
                 android:layout_toEndOf="@+id/imageCard_t7"
                 android:padding="8dp"
-                android:text="Career"
+                android:text="@string/career_item_t7"
                 android:textSize="14sp" />
         </RelativeLayout>
 
