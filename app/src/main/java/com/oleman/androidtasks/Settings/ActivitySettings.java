@@ -17,10 +17,6 @@ public class ActivitySettings extends AppCompatActivity implements View.OnClickL
 
     public final static String ANIMATION_SETTINGS = "animation";
 
-    private Button renameBtn;
-    private Button themeBtn;
-    private Button fontBtn;
-    private Switch animSw;
     private String data;
     private SettingAdapter adapterAnim;
 
@@ -29,10 +25,10 @@ public class ActivitySettings extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings);
 
-        renameBtn = (Button) findViewById(R.id.renameTasks_settings);
-        themeBtn = (Button) findViewById(R.id.theme_settings);
-        fontBtn = (Button) findViewById(R.id.font_settings);
-        animSw = (Switch) findViewById(R.id.swAnimation_settings);
+        Button renameBtn = (Button) findViewById(R.id.renameTasks_settings);
+        Button themeBtn = (Button) findViewById(R.id.theme_settings);
+        Button fontBtn = (Button) findViewById(R.id.font_settings);
+        Switch animSw = (Switch) findViewById(R.id.swAnimation_settings);
 
         renameBtn.setOnClickListener(this);
         themeBtn.setOnClickListener(this);

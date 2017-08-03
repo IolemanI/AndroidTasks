@@ -36,10 +36,6 @@ public class Task7AddCat extends AppCompatActivity implements View.OnClickListen
     private final String[] COLORS = {"red", "black", "white", "gray"};
 
     public int ID;
-    public String NAME;
-    public String AGE;
-    public String COLOR;
-    public String CAREER;
 
     public static ArrayList<String> nameList, ageList, colorList, careerList;
 
@@ -62,16 +58,12 @@ public class Task7AddCat extends AppCompatActivity implements View.OnClickListen
         Spinner colorSpin = (Spinner) findViewById(R.id.color_t7);
 
         Button saveBtn = (Button) findViewById(R.id.save_t7);
-        Button readBtn = (Button) findViewById(R.id.read_t7);
         Button clearBtn = (Button) findViewById(R.id.clear_t7);
         Button updateBtn = (Button) findViewById(R.id.update_t7);
-        Button deleteBtn = (Button) findViewById(R.id.delete_t7);
 
         saveBtn.setOnClickListener(this);
-        readBtn.setOnClickListener(this);
         clearBtn.setOnClickListener(this);
         updateBtn.setOnClickListener(this);
-        deleteBtn.setOnClickListener(this);
 
         ArrayAdapter<String> spinAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, COLORS);
         spinAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -103,6 +95,7 @@ public class Task7AddCat extends AppCompatActivity implements View.OnClickListen
         });
 
         dbHelper = new DBHelper(this);
+
     }
 
     @Override
@@ -131,44 +124,7 @@ public class Task7AddCat extends AppCompatActivity implements View.OnClickListen
                 // с вставляемыми значениями.
                 Log.d(LOG_TAG, "row inserted, ID = " + rowID);
                 Toast.makeText(this, "Cat has been saved.", Toast.LENGTH_SHORT).show();
-
-                clearTextView();
-                break;
-            case R.id.read_t7:
-                Cursor cursor = db.query(DBHelper.TABLE_CATS, null, null, null, null, null, null);
-
-                nameList = new ArrayList<>();
-                ageList = new ArrayList<>();
-                colorList = new ArrayList<>();
-                careerList = new ArrayList<>();
-
-                if (cursor.moveToFirst()){
-                    int idIndex = cursor.getColumnIndex(DBHelper.KEY_ID);
-                    int nameIndex = cursor.getColumnIndex(DBHelper.KEY_NAME);
-                    int ageIndex = cursor.getColumnIndex(DBHelper.KEY_AGE);
-                    int colorIndex = cursor.getColumnIndex(DBHelper.KEY_COLOR);
-                    int careerIndex = cursor.getColumnIndex(DBHelper.KEY_CAREER);
-                    do{
-                        Log.d(LOG_TAG, "ID = "+cursor.getInt(idIndex)
-                                +", NAME = "+cursor.getString(nameIndex)
-                                +", AGE = "+cursor.getString(ageIndex)
-                                +", COLOR = "+cursor.getString(colorIndex)
-                                +", CAREER = "+cursor.getString(careerIndex)
-                        );
-
-                        nameList.add("Name: " +cursor.getString(nameIndex));
-                        ageList.add("Age: " +cursor.getString(ageIndex));
-                        colorList.add("Color: " +cursor.getString(colorIndex));
-                        careerList.add("Career: " +cursor.getString(careerIndex));
-
-                    }while (cursor.moveToNext());
-
-                }else
-                    Log.d(LOG_TAG, "0 rows");
-
-                cursor.close();
-                Intent intent = new Intent(this, Task7Activity.class);
-                startActivity(intent);
+                finish();
                 break;
             case R.id.clear_t7:
                 db.delete(DBHelper.TABLE_CATS, null, null);
@@ -193,16 +149,6 @@ public class Task7AddCat extends AppCompatActivity implements View.OnClickListen
                 Log.d(LOG_TAG, "updated rows count = "+updCount);
                 Toast.makeText(this, "Row has been updated.", Toast.LENGTH_SHORT).show();
 
-                clearTextView();
-                break;
-            case R.id.delete_t7:
-                if (id.equalsIgnoreCase("")) break;
-                int delCount = db.delete(DBHelper.TABLE_CATS, DBHelper.KEY_ID+"= "+ id, null);
-                //для удаления поля по имени
-//                int delCount = db.delete(DBHelper.TABLE_CATS, DBHelper.KEY_NAME+" = ?", new String[]{name});
-
-                Log.d(LOG_TAG, "deleted rows count = "+delCount);
-                Toast.makeText(this, "Row has been deleted.", Toast.LENGTH_SHORT).show();
                 clearTextView();
                 break;
         }

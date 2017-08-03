@@ -71,7 +71,9 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/linearLayout"
         android:layout_below="@+id/linearLayout"
-        android:layout_marginTop="16dp">
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:paddingBottom="8dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -88,29 +90,8 @@
                 android:background="@drawable/button_result_selector_t5"
                 android:text="@string/save_t7"
                 android:textColor="@color/white"
-                android:textSize="18sp" />
-
-            <Button
-                android:id="@+id/read_t7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_weight="1"
-                android:background="@drawable/button_result_selector_t5"
-                android:text="@string/read_t7"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
-
-            <Button
-                android:id="@+id/clear_t7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_weight="1"
-                android:background="@drawable/button_result_selector_t5"
-                android:text="@string/clear_t7"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/update_t7"
@@ -121,19 +102,21 @@
                 android:background="@drawable/button_result_selector_t5"
                 android:text="@string/update_t7"
                 android:textColor="@color/white"
-                android:textSize="18sp" />
-
+                android:textSize="18sp"
+                tools:ignore="ButtonStyle" />
 
             <Button
-                android:id="@+id/delete_t7"
+                android:id="@+id/clear_t7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:layout_weight="1"
                 android:background="@drawable/button_result_selector_t5"
-                android:text="@string/delete_t7"
+                android:text="@string/clear_t7"
                 android:textColor="@color/white"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                tools:ignore="ButtonStyle" />
+
 
         </LinearLayout>
     </HorizontalScrollView>
