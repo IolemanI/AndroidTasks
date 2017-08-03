@@ -27,8 +27,12 @@ public class CatListAdapter extends RecyclerView.Adapter<CatListAdapter.CatViewH
     private List<String> ageList;
     private List<String> colorList;
     private List<String> careerList;
+    private Context context;
 
-    private static Context context;
+
+
+    public CatListAdapter() {
+    }
 
     public CatListAdapter(Context context, List<Integer> idList, List<String> nameList, List<String> ageList, List<String> colorList, List<String> careerList) {
         this.idList = idList;
@@ -37,6 +41,7 @@ public class CatListAdapter extends RecyclerView.Adapter<CatListAdapter.CatViewH
         this.colorList = colorList;
         this.careerList = careerList;
         this.context = context;
+
     }
 
     @Override
@@ -49,6 +54,7 @@ public class CatListAdapter extends RecyclerView.Adapter<CatListAdapter.CatViewH
     @Override
     public void onBindViewHolder(CatViewHolder holder, int position) {
 
+        holder.context = context;
         holder.id = ""+idList.get(position);
         holder.name.setText(nameList.get(position));
         holder.age.setText(ageList.get(position));
@@ -69,6 +75,7 @@ public class CatListAdapter extends RecyclerView.Adapter<CatListAdapter.CatViewH
         TextView color;
         TextView career;
         String id = "";
+        Context context;
 
         public CatViewHolder(View itemView) {
             super(itemView);
@@ -95,7 +102,7 @@ public class CatListAdapter extends RecyclerView.Adapter<CatListAdapter.CatViewH
 
         @Override
         public boolean onMenuItemClick(MenuItem item) {
-            DBHelper dbHelper = new DBHelper(CatListAdapter.context);
+            DBHelper dbHelper = new DBHelper(context);
             SQLiteDatabase db = dbHelper.getWritableDatabase();
 
             switch (item.getItemId()){
