@@ -102,12 +102,16 @@
     <string name="settings_font_size">Font size</string>
     <string name="settings_animation">Animation</string>
     <string name="cat_photo_t7">Cat photo</string>
-    <string name="name_item_t7">Name</string>
-    <string name="age_item_t7">Age</string>
-    <string name="color_item_t7">Color</string>
-    <string name="career_item_t7">Career</string>
+    <string name="name_item_t7">Name: </string>
+    <string name="age_item_t7">Age: </string>
+    <string name="color_item_t7">Color: </string>
+    <string name="career_item_t7">Career: </string>
     <string name="input_t4">Input</string>
     <string name="edit_t7">Edit</string>
+    <string name="age_card_t7">Age:</string>
+    <string name="career_card_t7">Career:</string>
+    <string name="color_card_t7">Color:</string>
+    <string name="name_card_t7">Name:</string>
 
 
 </resources>

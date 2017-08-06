@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -30,53 +31,94 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginEnd="8dp"
-                app:srcCompat="@drawable/ic_person"
-                android:contentDescription="@string/cat_photo_t7" />
+                android:contentDescription="@string/cat_photo_t7"
+                app:srcCompat="@drawable/ic_person" />
 
             <TextView
                 android:id="@+id/nameCard_t7"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
-                android:layout_toEndOf="@+id/imageCard_t7"
+                android:layout_toEndOf="@+id/textView4"
                 android:padding="8dp"
-                android:text="@string/name_item_t7"
+                android:paddingStart="0dp"
                 android:textColor="@color/common_google_signin_btn_text_light_focused"
                 android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/ageCard_t7"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_below="@+id/nameCard_t7"
-                android:layout_toEndOf="@+id/imageCard_t7"
+                android:layout_toEndOf="@+id/textView3"
                 android:padding="8dp"
-                android:text="@string/age_item_t7"
+                android:paddingStart="0dp"
                 android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/colorCard_t7"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_below="@+id/ageCard_t7"
-                android:layout_toEndOf="@+id/imageCard_t7"
+                android:layout_toEndOf="@+id/textView6"
                 android:padding="8dp"
-                android:text="@string/color_item_t7"
+                android:paddingStart="0dp"
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/careerCard_t7"
-                android:layout_width="match_parent"
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_below="@+id/colorCard_t7"
+                android:layout_above="@+id/colorCard_t7"
+                android:layout_below="@+id/nameCard_t7"
                 android:layout_toEndOf="@+id/imageCard_t7"
                 android:padding="8dp"
-                android:text="@string/career_item_t7"
-                android:textSize="14sp" />
+                android:text="@string/age_card_t7" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView3"
+                android:layout_toEndOf="@+id/imageCard_t7"
+                android:padding="8dp"
+                android:text="@string/color_card_t7" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/imageCard_t7"
+                android:layout_below="@+id/textView6"
+                android:layout_toEndOf="@+id/imageCard_t7"
+                android:padding="8dp"
+                android:text="@string/career_card_t7" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/nameCard_t7"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/imageCard_t7"
+                android:padding="8dp"
+                android:text="@string/name_card_t7" />
+
+            <TextView
+                android:id="@+id/careerCard_t7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/textViewCareer"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/colorCard_t7"
+                android:layout_toEndOf="@+id/textView7"
+                android:padding="8dp"
+                android:paddingStart="0dp"
+                android:textSize="14sp"
+                tools:ignore="UnknownId" />
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>
