@@ -15,18 +15,9 @@
         android:id="@+id/linearLayout">
 
         <EditText
-            android:id="@+id/id_t7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/id_t7"
-            android:inputType="textPersonName" />
-
-        <EditText
             android:id="@+id/name_t7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:ems="10"
             android:hint="@string/name_t7"
             android:inputType="textPersonName" />
@@ -66,58 +57,50 @@
 
     </LinearLayout>
 
-    <HorizontalScrollView
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/linearLayout"
         android:layout_below="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
-        android:layout_marginTop="16dp"
-        android:paddingBottom="8dp">
+        android:orientation="horizontal">
 
-        <LinearLayout
+        <Button
+            android:id="@+id/save_t7"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_result_selector_t5"
+            android:fadeScrollbars="false"
+            android:text="@string/save_t7"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="ButtonStyle" />
 
-            <Button
-                android:id="@+id/save_t7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_weight="1"
-                android:background="@drawable/button_result_selector_t5"
-                android:text="@string/save_t7"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                tools:ignore="ButtonStyle" />
+        <Button
+            android:id="@+id/update_t7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_result_selector_t5"
+            android:text="@string/update_t7"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:ignore="ButtonStyle,RtlHardcoded" />
 
-            <Button
-                android:id="@+id/update_t7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_weight="1"
-                android:background="@drawable/button_result_selector_t5"
-                android:text="@string/update_t7"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                tools:ignore="ButtonStyle" />
-
-            <Button
-                android:id="@+id/clear_t7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_weight="1"
-                android:background="@drawable/button_result_selector_t5"
-                android:text="@string/clear_t7"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                tools:ignore="ButtonStyle" />
+        <Button
+            android:id="@+id/clear_t7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_result_selector_t5"
+            android:text="@string/clear_t7"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:visibility="visible"
+            tools:ignore="ButtonStyle" />
 
 
-        </LinearLayout>
-    </HorizontalScrollView>
+    </LinearLayout>
 </RelativeLayout>

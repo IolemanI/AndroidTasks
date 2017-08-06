@@ -2,6 +2,7 @@ package com.oleman.androidtasks.adapters;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.PopupMenu;
@@ -30,10 +31,6 @@ public class CatListAdapter extends RecyclerView.Adapter<CatListAdapter.CatViewH
     private Context context;
 
 
-
-    public CatListAdapter() {
-    }
-
     public CatListAdapter(Context context, List<Integer> idList, List<String> nameList, List<String> ageList, List<String> colorList, List<String> careerList) {
         this.idList = idList;
         this.nameList = nameList;
@@ -55,7 +52,7 @@ public class CatListAdapter extends RecyclerView.Adapter<CatListAdapter.CatViewH
     public void onBindViewHolder(CatViewHolder holder, int position) {
 
         holder.context = context;
-        holder.id = ""+idList.get(position);
+        holder.id = idList.get(position);
         holder.name.setText(nameList.get(position));
         holder.age.setText(ageList.get(position));
         holder.color.setText(colorList.get(position));
@@ -67,17 +64,17 @@ public class CatListAdapter extends RecyclerView.Adapter<CatListAdapter.CatViewH
         return nameList.size();
     }
 
-    public static class CatViewHolder extends RecyclerView.ViewHolder implements PopupMenu.OnMenuItemClickListener {
+    static class CatViewHolder extends RecyclerView.ViewHolder implements PopupMenu.OnMenuItemClickListener {
 
         CardView cardView;
         TextView name;
         TextView age;
         TextView color;
         TextView career;
-        String id = "";
+        int id = -1;
         Context context;
 
-        public CatViewHolder(View itemView) {
+        CatViewHolder(View itemView) {
             super(itemView);
 
             cardView = itemView.findViewById(R.id.cat_card);
@@ -107,13 +104,26 @@ public class CatListAdapter extends RecyclerView.Adapter<CatListAdapter.CatViewH
 
             switch (item.getItemId()){
                 case R.id.delete_popup_t7:
-                    if (id.equalsIgnoreCase("")) break;
+                    if (id == -1) break;
                     int delCount = db.delete(DBHelper.TABLE_CATS, DBHelper.KEY_ID+"= "+ id, null);
                     //для удаления поля по имени
                     //int delCount = db.delete(DBHelper.TABLE_CATS, DBHelper.KEY_NAME+" = ?", new String[]{name});
 
                     Log.d(LOG_TAG, "deleted rows count = "+delCount);
                     Toast.makeText(context, "Cat has been deleted.", Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.edit_popup_t7:
+                    Intent intent = new Intent("androidtasks.intent.action.task7_add_cat");
+                    intent.putExtra("action", "edit");
+
+                    intent.putExtra("id", id);
+                    intent.putExtra("name", name.getText());
+                    intent.putExtra("age", age.getText());
+                    intent.putExtra("color", color.getText());
+                    intent.putExtra("career", career.getText());
+
+                    context.startActivity(intent);
+                    break;
             }
             return false;
         }

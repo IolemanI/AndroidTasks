@@ -40,9 +40,8 @@ public class Task7Activity extends AppCompatActivity implements View.OnClickList
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
                 Intent intent = new Intent("androidtasks.intent.action.task7_add_cat");
+                intent.putExtra("action", "save");
                 startActivity(intent);
             }
         });
@@ -83,18 +82,18 @@ public class Task7Activity extends AppCompatActivity implements View.OnClickList
             int careerIndex = cursor.getColumnIndex(DBHelper.KEY_CAREER);
 
             do{
-                Log.d(LOG_TAG, "ID = "+cursor.getInt(idIndex)
-                        +", NAME = "+cursor.getString(nameIndex)
-                        +", AGE = "+cursor.getString(ageIndex)
-                        +", COLOR = "+cursor.getString(colorIndex)
-                        +", CAREER = "+cursor.getString(careerIndex)
-                );
+//                Log.d(LOG_TAG, "ID = "+cursor.getInt(idIndex)
+//                        +", NAME = "+cursor.getString(nameIndex)
+//                        +", AGE = "+cursor.getString(ageIndex)
+//                        +", COLOR = "+cursor.getString(colorIndex)
+//                        +", CAREER = "+cursor.getString(careerIndex)
+//                );
 
                 idList.add(cursor.getInt(idIndex));
-                nameList.add("Name: " +cursor.getString(nameIndex));
-                ageList.add("Age: " +cursor.getString(ageIndex));
-                colorList.add("Color: " +cursor.getString(colorIndex));
-                careerList.add("Career: " +cursor.getString(careerIndex));
+                nameList.add(cursor.getString(nameIndex));
+                ageList.add(cursor.getString(ageIndex));
+                colorList.add(cursor.getString(colorIndex));
+                careerList.add(cursor.getString(careerIndex));
 
             }while (cursor.moveToNext());
 
