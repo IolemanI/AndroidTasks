@@ -57,7 +57,7 @@ public class Task4Activity extends AppCompatActivity implements View.OnClickList
      */
     private void displayChat() {
         ListView listMessage = (ListView) findViewById(R.id.listView_task4);
-        adapter = new FirebaseListAdapter<Message>(this, Message.class, R.layout.task4_item, FirebaseDatabase.getInstance().getReference()) {
+        adapter = new FirebaseListAdapter<Message>(this, Message.class, R.layout.task4_item, FirebaseDatabase.getInstance().getReference().child("chat")) {
             @Override
             protected void populateView(View v, Message model, int position) {
 
@@ -128,7 +128,7 @@ public class Task4Activity extends AppCompatActivity implements View.OnClickList
 
         //Далее считываем текст из поля ввода и отправляем новый экземпляр
         // сообщения в базу данных Firebase
-        FirebaseDatabase.getInstance().getReference().push()
+        FirebaseDatabase.getInstance().getReference("chat").push()
                 .setValue(new Message(input.getText().toString(), FirebaseAuth.getInstance().getCurrentUser().getEmail()));
         input.setText("");
 

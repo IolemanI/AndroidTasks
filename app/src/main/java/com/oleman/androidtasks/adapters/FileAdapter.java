@@ -187,12 +187,4 @@ public class FileAdapter {
         xpp.setInput(new StringReader(data));
         return xpp;
     }
-
-
-
-
-
-
-
-
 }

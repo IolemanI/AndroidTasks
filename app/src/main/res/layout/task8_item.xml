@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/tv_name_task_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:hint="@string/name_t8"
+        android:padding="4dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_email_task8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/tv_name_task_8"
+        android:hint="@string/email_t8"
+        android:padding="4dp"
+        tools:ignore="RelativeOverlap" />
+
+    <TextView
+        android:id="@+id/tv_message_task8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_name_task_8"
+        android:layout_marginTop="8dp"
+        android:elevation="@dimen/cardview_default_elevation"
+        android:hint="@string/message_hint_task4"
+        android:padding="4dp"
+        android:textSize="18sp" />
+</RelativeLayout>

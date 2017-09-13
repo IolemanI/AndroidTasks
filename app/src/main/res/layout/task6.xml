@@ -52,4 +52,17 @@
         android:textSize="18sp"
         android:layout_alignTop="@+id/web_t6"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/screen_t6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/web_t6"
+        android:layout_below="@+id/web_t6"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_dark_selector_t5"
+        android:onClick="makePhoto"
+        android:text="@string/camera_t6"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
 </RelativeLayout>

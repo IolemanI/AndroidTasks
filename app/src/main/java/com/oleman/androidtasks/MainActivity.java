@@ -22,6 +22,7 @@ import com.oleman.androidtasks.tasks.Task4Activity;
 import com.oleman.androidtasks.tasks.Task5Activity;
 import com.oleman.androidtasks.tasks.Task7Activity;
 import com.oleman.androidtasks.tasks.Task7AddCat;
+import com.oleman.androidtasks.tasks.Task8;
 
 import java.util.ArrayList;
 
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public Button task5Btn;
     public Button task6Btn;
     public Button task7Btn;
+    public Button task8Btn;
 
     private Animation anim1 = null;
     private Animation anim2 = null;
@@ -56,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Animation anim5 = null;
     private Animation anim6 = null;
     private Animation anim7 = null;
+    private Animation anim8 = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         task5Btn = (Button) findViewById(R.id.task5Btn);
         task6Btn = (Button) findViewById(R.id.task6Btn);
         task7Btn = (Button) findViewById(R.id.task7Btn);
+        task8Btn = (Button) findViewById(R.id.task8Btn);
 
         task1Btn.setOnClickListener(this);
         task2Btn.setOnClickListener(this);
@@ -77,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         task5Btn.setOnClickListener(this);
         task6Btn.setOnClickListener(this);
         task7Btn.setOnClickListener(this);
+        task8Btn.setOnClickListener(this);
 
         registerForContextMenu(task1Btn); //регистрация контекстного меню для кнопок
         registerForContextMenu(task2Btn);
@@ -85,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         registerForContextMenu(task5Btn);
         registerForContextMenu(task6Btn);
         registerForContextMenu(task7Btn);
+        registerForContextMenu(task8Btn);
 
         settingAdapter = new SettingAdapter(BTN_NAMES, getSharedPreferences(SETTING_FILE_NAME, MODE_PRIVATE));
         settingAdapter1 = new SettingAdapter(FONT_SIZE_SETTINGS, getSharedPreferences(SETTING_FILE_NAME, MODE_PRIVATE));
@@ -134,6 +140,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.task7Btn:
                 menu.add(0, 7, 0, "Info");
                 break;
+            case R.id.task8Btn:
+                menu.add(0, 7, 0, "Info");
+                break;
         }
     }
 
@@ -161,6 +170,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case 7:
                 Toast.makeText(MainActivity.this, "Work with DataBases.", Toast.LENGTH_SHORT).show();
+                break;
+            case 8:
+                Toast.makeText(MainActivity.this, "Here are all my CV messages.", Toast.LENGTH_SHORT).show();
                 break;
         }
         return super.onContextItemSelected(item);
@@ -200,43 +212,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.task1Btn:
                 intent = new Intent(this, Task1Activity.class);
                 startActivity(intent);
-                Log.d(LOG_TAG, "Open Task #1.");
                 break;
             case R.id.task2Btn:
                 intent = new Intent(this, Task2Activity.class);
                 startActivity(intent);
-                Log.d(LOG_TAG, "Open Task #2.");
 
                 break;
             case R.id.task3Btn:
                 intent = new Intent(this, Task3Activity.class);
                 startActivity(intent);
-                Log.d(LOG_TAG, "Open Task #3.");
 
                 break;
             case R.id.task4Btn:
                 intent = new Intent(this, Task4Activity.class);
                 startActivity(intent);
-                Log.d(LOG_TAG, "Open Task #4.");
 
                 break;
             case R.id.task5Btn:
                 intent = new Intent(this, Task5Activity.class);
                 startActivity(intent);
-                Log.d(LOG_TAG, "Open Task #5.");
 
                 break;
             case R.id.task6Btn:
                 intent = new Intent("androidtasks.intent.action.task6");
                 startActivity(intent);
-                Log.d(LOG_TAG, "Open Task #6.");
 
                 break;
             case R.id.task7Btn:
                 intent = new Intent(this, Task7Activity.class);
                 startActivity(intent);
-                Log.d(LOG_TAG, "Open Task #7.");
 
+                break;
+            case R.id.task8Btn:
+                intent = new Intent(this, Task8.class);
+                startActivity(intent);
                 break;
 //            case R.id.task7Btn:
 //                Log.d(LOG_TAG, "Task #4 clicked.");

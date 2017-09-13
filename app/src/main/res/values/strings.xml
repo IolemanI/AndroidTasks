@@ -67,6 +67,7 @@
     <string name="call_t6">Call</string>
     <string name="web_t6">Web</string>
     <string name="map_t6">Map</string>
+    <string name="camera_t6">Camera</string>
     <string name="open_color_picker_t6">Open color-picker</string>
 
     <string name="rename_tasks_settings">Rename tasks</string>
@@ -112,6 +113,9 @@
     <string name="career_card_t7">Career:</string>
     <string name="color_card_t7">Color:</string>
     <string name="name_card_t7">Name:</string>
+    <string name="email_t8">Email</string>
+    <string name="name_t8">Name</string>
+    <string name="cv_messages">CV Messages</string>
 
 
 </resources>

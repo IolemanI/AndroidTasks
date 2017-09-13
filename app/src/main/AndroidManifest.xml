@@ -4,6 +4,8 @@
     package="com.oleman.androidtasks">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -96,8 +98,7 @@
             android:name=".tasks.Task6Result"
             android:label="@string/activity_label_theme"
             android:theme="@style/Theme.AppCompat.Dialog" />
-        <activity
-            android:name=".WebActivity">
+        <activity android:name=".WebActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -106,10 +107,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Settings.ActivitySettings" />
-        <activity
-            android:name=".Settings.RenameTasksActivity" />
+        <activity android:name=".Settings.ActivitySettings" />
+        <activity android:name=".Settings.RenameTasksActivity" />
         <activity
             android:name=".Settings.SetThemeActivity"
             android:label="@string/activity_label_theme"
@@ -118,17 +117,18 @@
             android:name=".Settings.FontSettingsActivity"
             android:label="@string/font_size"
             android:theme="@style/Theme.AppCompat.Dialog" />
-        <activity
-            android:name=".tasks.Task7Activity" />
+        <activity android:name=".tasks.Task7Activity" />
         <activity
             android:name=".tasks.Task7AddCat"
             android:label="@string/add_cat_t7"
-            android:theme="@style/Theme.AppCompat.Dialog" >
+            android:theme="@style/Theme.AppCompat.Dialog">
             <intent-filter>
                 <action android:name="androidtasks.intent.action.task7_add_cat" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".tasks.Task8"></activity>
     </application>
 
 </manifest>
