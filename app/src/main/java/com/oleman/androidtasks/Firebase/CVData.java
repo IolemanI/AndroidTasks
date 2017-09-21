@@ -10,11 +10,15 @@ public class CVData {
     private String name;
     private String email;
     private String message;
+    private long timeMessage;
 
     public CVData(String email, String message, String name) {
         this.name = name;
         this.email = email;
         this.message = message;
+
+        timeMessage = new Date().getTime();
+
     }
 
     public CVData() {
@@ -46,6 +50,14 @@ public class CVData {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public long getTimeMessage() {
+        return timeMessage;
+    }
+
+    public void setTimeMessage(long timeMessage) {
+        this.timeMessage = timeMessage;
     }
 
 }

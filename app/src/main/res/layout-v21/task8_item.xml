@@ -6,22 +6,33 @@
     android:padding="8dp">
 
     <TextView
+        android:id="@+id/time_t8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:hint="@string/time"
+        android:padding="4dp"
+        android:textColor="@color/cardview_shadow_start_color" />
+
+    <TextView
         android:id="@+id/tv_name_task_8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:hint="@string/name_t8"
         android:padding="4dp"
         android:textColor="@color/colorPrimaryDark"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_above="@+id/tv_message_task8"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/tv_email_task8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/time_t8"
         android:layout_toEndOf="@+id/tv_name_task_8"
         android:hint="@string/email_t8"
         android:padding="4dp"
@@ -33,10 +44,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/tv_name_task_8"
+        android:layout_below="@+id/tv_email_task8"
+        android:layout_marginBottom="16dp"
         android:layout_marginTop="8dp"
         android:elevation="@dimen/cardview_default_elevation"
         android:hint="@string/message_hint_task4"
         android:padding="4dp"
         android:textSize="18sp" />
+
 </RelativeLayout>

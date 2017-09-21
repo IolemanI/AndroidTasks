@@ -116,6 +116,7 @@
     <string name="email_t8">Email</string>
     <string name="name_t8">Name</string>
     <string name="cv_messages">CV Messages</string>
+    <string name="time">Time</string>
 
 
 </resources>

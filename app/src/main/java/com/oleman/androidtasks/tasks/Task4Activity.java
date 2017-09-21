@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,8 +21,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.oleman.androidtasks.Firebase.Message;
 import com.oleman.androidtasks.R;
+
+import static com.oleman.androidtasks.MainActivity.LOG_TAG;
 
 
 public class Task4Activity extends AppCompatActivity implements View.OnClickListener{
@@ -40,6 +44,10 @@ public class Task4Activity extends AppCompatActivity implements View.OnClickList
         activity = (RelativeLayout) findViewById(R.id.activity_main);
         sendBtn = (FloatingActionButton) findViewById(R.id.button_send_task4);
         sendBtn.setOnClickListener(this);
+
+        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+        Log.d(LOG_TAG, "Refreshed token: " + refreshedToken);
+
 
         // создание окна авторизации
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {

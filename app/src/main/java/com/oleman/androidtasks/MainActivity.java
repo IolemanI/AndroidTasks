@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String testStr = "F: "+settingAdapter1.loadText()+ "; "
                 +"T: "+settingAdapter2.loadText()+ "; "
                 +"A: "+adapterAnim.loadText();
-        Toast.makeText(this, testStr, Toast.LENGTH_LONG).show();
+//        Toast.makeText(this, testStr, Toast.LENGTH_LONG).show();
 
 
         renameButtons();
@@ -310,6 +310,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         anim5 = AnimationUtils.loadAnimation(this, R.anim.task_btns_anim);
         anim6 = AnimationUtils.loadAnimation(this, R.anim.task_btns_anim);
         anim7 = AnimationUtils.loadAnimation(this, R.anim.task_btns_anim);
+        anim8 = AnimationUtils.loadAnimation(this, R.anim.task_btns_anim);
 
         task1Btn.startAnimation(anim1);
         anim2.setStartOffset(300);
@@ -324,6 +325,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         task6Btn.startAnimation(anim6);
         anim7.setStartOffset(2000);
         task7Btn.startAnimation(anim7);
+        anim8.setStartOffset(2500);
+        task8Btn.startAnimation(anim8);
 
     }
 }
